@@ -1,6 +1,9 @@
+import org.jetbrains.dokka.gradle.DokkaTask
+
 plugins {
     id("com.android.application")
     `kotlin-android`
+    document
 }
 
 android {
@@ -15,10 +18,6 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode = 1
         versionName = "1.0"
-    }
-
-    lintOptions {
-        fatal("StopShip")
     }
 
     buildTypes {
@@ -38,6 +37,14 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+}
+
+tasks.withType<DokkaTask>().configureEach {
+    dokkaSourceSets {
+        configureEach {
+            noAndroidSdkLink.set(false)
+        }
     }
 }
 

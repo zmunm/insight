@@ -12,7 +12,7 @@ repositories {
 object PluginVersion {
     const val ANDROID_TOOL = "4.1.1"
     const val KOTLIN = "1.4.20"
-    const val DOKKA = "0.10.1"
+    const val DOKKA = "1.4.10"
     const val VERSIONING = "0.29.0"
 }
 
