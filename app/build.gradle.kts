@@ -4,10 +4,12 @@ plugins {
     id("com.android.application")
     `kotlin-android`
     document
+    `kotlin-kapt`
+    id("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdkVersion(29)
+    compileSdkVersion(30)
     buildToolsVersion = "30.0.2"
 
     defaultConfig {
@@ -53,5 +55,9 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.2.1")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation("com.google.dagger:dagger:2.28.3")
+    implementation("com.google.dagger:hilt-android:2.28-alpha")
+    kapt("com.google.dagger:dagger-compiler:2.28.3")
+    kapt("com.google.dagger:hilt-android-compiler:2.28-alpha")
     testImplementation("junit:junit:4.13.1")
 }

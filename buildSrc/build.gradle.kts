@@ -22,4 +22,5 @@ dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.14.2")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.28-alpha")
 }
