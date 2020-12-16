@@ -3,6 +3,11 @@ include(
     ":app",
     ":entity",
     ":usecase",
-    ":datasource",
-    ":repository"
+    ":repository",
+
+    ":service:remote:retrofit-flow",
+    ":service:remote:retrofit-rx",
+
+    ":service:local:room",
+    ":service:local:realm"
 )
