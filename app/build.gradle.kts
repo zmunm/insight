@@ -40,6 +40,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    packagingOptions {
+        exclude("DebugProbesKt.bin")
+    }
 }
 
 tasks.withType<DokkaTask>().configureEach {
@@ -54,7 +57,9 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":usecase"))
     implementation(project(":repository"))
+    implementation(project(":service:remote:retrofit-flow"))
 
+    implementation("androidx.startup:startup-runtime:1.0.0")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
     implementation("com.google.android.material:material:1.2.1")
@@ -73,6 +78,13 @@ dependencies {
     kapt("com.google.dagger:dagger-compiler:2.30.1")
     kapt("com.google.dagger:hilt-android-compiler:2.30.1-alpha")
     kapt("androidx.hilt:hilt-compiler:1.0.0-alpha02")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+
+    implementation("androidx.paging:paging-runtime:3.0.0-alpha11")
+
+    implementation("com.orhanobut:logger:2.2.0")
 
     testImplementation("junit:junit:4.13.1")
 }
