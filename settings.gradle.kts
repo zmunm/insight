@@ -5,8 +5,8 @@ include(
     ":usecase",
     ":repository",
 
-    ":service:remote:retrofit-flow",
-    ":service:remote:retrofit-rx",
+    ":service:remote:retrofit",
+    ":service:remote:ktor",
 
     ":service:local:room",
     ":service:local:realm"

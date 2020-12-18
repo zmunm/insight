@@ -62,7 +62,7 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":usecase"))
     implementation(project(":repository"))
-    implementation(project(":service:remote:retrofit-flow"))
+    implementation(project(":service:remote:retrofit"))
 
     implementation("androidx.startup:startup-runtime:1.0.0")
     implementation("androidx.core:core-ktx:1.3.2")
