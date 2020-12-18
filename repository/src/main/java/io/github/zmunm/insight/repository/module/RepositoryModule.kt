@@ -11,11 +11,11 @@ import io.github.zmunm.insight.repository.service.MovieService
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+internal object RepositoryModule {
 
     @Reusable
     @Provides
-    internal fun provideMovieRepository(
+    fun provideMovieRepository(
         movieService: MovieService
     ): MovieRepository = MovieDataSource(
         movieService

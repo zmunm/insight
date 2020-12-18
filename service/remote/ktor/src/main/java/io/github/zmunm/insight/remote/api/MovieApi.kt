@@ -6,7 +6,7 @@ import io.ktor.client.*
 import io.ktor.client.request.*
 import io.ktor.http.*
 
-class MovieApi(
+internal class MovieApi(
     private val client: HttpClient
 ) {
     suspend fun fetchTopRated(

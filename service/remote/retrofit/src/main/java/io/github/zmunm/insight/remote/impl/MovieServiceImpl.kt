@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class MovieServiceImpl(
+internal class MovieServiceImpl(
     private val movieApi: MovieApi
 ) : MovieService {
 

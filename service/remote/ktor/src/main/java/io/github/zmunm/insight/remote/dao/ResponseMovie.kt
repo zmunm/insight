@@ -3,7 +3,7 @@ package io.github.zmunm.insight.remote.dao
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ResponseMovie(
+internal data class ResponseMovie(
     val adult: Boolean,
     val backdrop_path: String,
     val genre_ids: List<Int>,

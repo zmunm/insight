@@ -11,7 +11,7 @@ import java.util.concurrent.SynchronousQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
-internal object RetrofitBuilder {
+internal object RetrofitInstance {
     private const val TAG = "OkHTTP"
 
     private const val TIME_OUT = 20_000L
@@ -20,7 +20,7 @@ internal object RetrofitBuilder {
     private const val MAXIMUM_POOL_SIZE = 30
     private const val KEEP_ALIVE_TIME = 15L
 
-    fun build(): Retrofit = Retrofit.Builder()
+    private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.themoviedb.org/3/")
         .addConverterFactory(
             MoshiConverterFactory.create(
@@ -60,4 +60,6 @@ internal object RetrofitBuilder {
                 .build()
         )
         .build()
+
+    operator fun invoke(): Retrofit = retrofit
 }
