@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="clickListener"
-            type="android.view.View.OnClickListener"/>
+            type="android.view.View.OnClickListener" />
+
         <variable
             name="movie"
-            type="io.github.zmunm.insight.entity.Movie"/>
+            type="io.github.zmunm.insight.entity.Movie" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -23,36 +25,37 @@
         app:cardPreventCornerOverlap="false"
         app:shapeAppearanceOverlay="@style/Shape.Round6">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-                <ImageView
-                    android:id="@+id/image"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="@android:string/untitled"
-                    android:scaleType="centerCrop"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:contentDescription="@android:string/untitled"
+                android:scaleType="fitCenter"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginTop="16dp"
-                    android:text="@{movie.title}"
-                    android:textAppearance="?attr/textAppearanceListItem"
-                    android:gravity="center_horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/image"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    tools:text="Tomato"/>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
+                android:text="@{movie.title}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                tools:text="Tomato" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

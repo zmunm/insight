@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.binding.conversion
+package io.github.zmunm.insight.binding
 
 import android.view.View
 import androidx.databinding.BindingAdapter
