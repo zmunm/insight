@@ -3,10 +3,11 @@ import org.jetbrains.dokka.gradle.DokkaTask
 plugins {
     id("com.android.application")
     `kotlin-android`
-    document
     `kotlin-kapt`
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs.kotlin")
+    detekt
+    document
 }
 
 android {
@@ -42,8 +43,8 @@ android {
         jvmTarget = "1.8"
 
         freeCompilerArgs = freeCompilerArgs +
-                "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi" +
-                "-Xopt-in=kotlinx.coroutines.FlowPreview"
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi" +
+            "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
     packagingOptions {
         exclude("DebugProbesKt.bin")
@@ -64,8 +65,8 @@ dependencies {
     implementation(project(":repository"))
 
     //region remote service
-    //implementation(project(":service:remote:retrofit"))
-    implementation(project(":service:remote:ktor"))
+    implementation(project(":service:remote:retrofit"))
+    // implementation(project(":service:remote:ktor"))
     //endregion
 
     implementation("androidx.startup:startup-runtime:1.0.0")

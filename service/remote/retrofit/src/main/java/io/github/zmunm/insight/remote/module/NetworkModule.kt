@@ -8,7 +8,6 @@ import io.github.zmunm.insight.remote.RetrofitBuilder
 import io.github.zmunm.insight.remote.api.MovieApi
 import io.github.zmunm.insight.remote.impl.MovieServiceImpl
 import io.github.zmunm.insight.repository.service.MovieService
-import retrofit2.Retrofit
 import javax.inject.Singleton
 
 @Module

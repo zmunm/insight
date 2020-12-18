@@ -7,10 +7,10 @@ import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.remote.api.MovieApi
 import io.github.zmunm.insight.remote.impl.MovieServiceImpl
 import io.github.zmunm.insight.repository.service.MovieService
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.*
+import io.ktor.client.engine.cio.*
+import io.ktor.client.features.json.*
+import io.ktor.client.features.json.serializer.*
 import io.ktor.client.features.json.serializer.KotlinxSerializer.Companion.DefaultJson
 import javax.inject.Singleton
 

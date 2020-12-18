@@ -2,7 +2,11 @@ package io.github.zmunm.insight
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
 import com.orhanobut.logger.Logger
 import io.github.zmunm.insight.entity.Movie
 import io.github.zmunm.insight.usecase.GetMovies

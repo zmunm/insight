@@ -1,15 +1,20 @@
 package io.github.zmunm.insight
 
-import android.graphics.*
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.ComposeShader
+import android.graphics.LinearGradient
+import android.graphics.Paint
+import android.graphics.PorterDuff
+import android.graphics.RectF
+import android.graphics.Shader
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.logger.Logger
 import dagger.hilt.android.AndroidEntryPoint
-import io.github.zmunm.insight.usecase.GetMovies
-import javax.inject.Inject
-
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -30,7 +35,6 @@ class MainActivity : AppCompatActivity() {
 
         val pnt = Paint()
         pnt.isAntiAlias = true
-
 
         val gradient1 =
             LinearGradient(
