@@ -24,6 +24,10 @@ android {
         versionName = "1.0"
     }
 
+    buildFeatures {
+        dataBinding = true
+    }
+
     buildTypes {
         getByName("release") {
             minifyEnabled(false)

@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 
-class MainViewModel @ViewModelInject constructor(
+class TodayViewModel @ViewModelInject constructor(
     private val getMovies: GetMovies,
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {

@@ -8,7 +8,7 @@ import com.orhanobut.logger.Logger
 import com.orhanobut.logger.PrettyFormatStrategy
 import io.github.zmunm.insight.BuildConfig
 
-class LoggerInitializer : Initializer<Unit> {
+internal class LoggerInitializer : Initializer<Unit> {
     override fun create(context: Context) {
         val formatStrategy: FormatStrategy = PrettyFormatStrategy.newBuilder()
             .showThreadInfo(false)

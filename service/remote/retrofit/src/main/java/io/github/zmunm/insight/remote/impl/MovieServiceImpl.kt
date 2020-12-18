@@ -18,6 +18,7 @@ internal class MovieServiceImpl(
         emit(
             movieApi.fetchTopRated(page).results.map { responseMovie ->
                 Movie(
+                    responseMovie.id,
                     responseMovie.title
                 )
             }
