@@ -1,5 +1,8 @@
 package io.github.zmunm.insight.remote.dao
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class ResponseTopRated(
     val page: Int,
     val results: List<ResponseMovie>,

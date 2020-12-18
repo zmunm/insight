@@ -62,7 +62,11 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":usecase"))
     implementation(project(":repository"))
-    implementation(project(":service:remote:retrofit"))
+
+    //region remote service
+    //implementation(project(":service:remote:retrofit"))
+    implementation(project(":service:remote:ktor"))
+    //endregion
 
     implementation("androidx.startup:startup-runtime:1.0.0")
     implementation("androidx.core:core-ktx:1.3.2")
