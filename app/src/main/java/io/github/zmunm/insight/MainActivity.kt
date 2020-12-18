@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.orhanobut.logger.Logger
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.zmunm.insight.usecase.GetMovies
 import javax.inject.Inject
@@ -19,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel
+        viewModel.movies.observe(this) {
+            Logger.i(it.toString())
+        }
 
         val bitmap = Bitmap.createBitmap(1080, 1080, Bitmap.Config.ARGB_8888)
 

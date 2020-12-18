@@ -8,5 +8,5 @@ import kotlinx.coroutines.flow.Flow
 class MovieDataSource(
     private val movieService: MovieService
 ) : MovieRepository {
-    override suspend fun getMovies(): Flow<List<Movie>> = movieService.fetchTopRated(1)
+    override suspend fun getMovies(page: Int?): Flow<List<Movie>> = movieService.fetchTopRated(page)
 }

@@ -4,5 +4,5 @@ import io.github.zmunm.insight.entity.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
-    suspend fun getMovies(): Flow<List<Movie>>
+    suspend fun getMovies(page: Int?): Flow<List<Movie>>
 }

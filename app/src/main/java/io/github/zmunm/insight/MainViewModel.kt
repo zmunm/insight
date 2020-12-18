@@ -4,8 +4,11 @@ import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.orhanobut.logger.Logger
+import io.github.zmunm.insight.entity.Movie
 import io.github.zmunm.insight.usecase.GetMovies
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.launch
 
 class MainViewModel @ViewModelInject constructor(
@@ -13,15 +16,25 @@ class MainViewModel @ViewModelInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val page: MutableLiveData<Int> = MutableLiveData()
+    private val page: MutableStateFlow<Int> = MutableStateFlow(0)
+
+    val movies: LiveData<List<Movie>> = page.flatMapLatest { page ->
+        getMovies(page)
+    }.asLiveData()
 
     init {
         viewModelScope.launch {
-            getMovies().collect {
-                Logger.i(it.toString())
+            page.collect { nextPage ->
+                Logger.i(nextPage.toString())
             }
         }
     }
 
-    fun next(nextPage: Int) = page.postValue(nextPage)
+    fun next(next: Int) {
+        page.value = next
+    }
+
+    fun reset() {
+        page.value = 0
+    }
 }
