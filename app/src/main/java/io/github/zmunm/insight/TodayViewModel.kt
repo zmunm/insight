@@ -18,7 +18,7 @@ class TodayViewModel @ViewModelInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     fun getPager() = Pager(
-        config = PagingConfig(enablePlaceholders = true, pageSize = 100),
+        config = PagingConfig(enablePlaceholders = true, pageSize = 10),
         pagingSourceFactory = {
             object : PagingSource<Int, Movie>() {
 
