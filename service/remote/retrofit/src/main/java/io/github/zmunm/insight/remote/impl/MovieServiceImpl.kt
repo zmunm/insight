@@ -9,19 +9,15 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 internal class MovieServiceImpl(
-    private val movieApi: MovieApi
+    private val movieApi: MovieApi,
 ) : MovieService {
 
     override suspend fun fetchTopRated(
-        page: Int?
-    ): Flow<List<Movie>> = flow {
-        emit(
-            movieApi.fetchTopRated(page).results.map { responseMovie ->
-                Movie(
-                    responseMovie.id,
-                    responseMovie.title
-                )
-            }
+        page: Int?,
+    ): List<Movie> = movieApi.fetchTopRated(page).results.map { responseMovie ->
+        Movie(
+            responseMovie.id,
+            responseMovie.title
         )
-    }.flowOn(Dispatchers.IO)
+    }
 }

@@ -13,14 +13,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.ListMovieBinding
 import io.github.zmunm.insight.entity.Movie
 
-class TodayAdapter : ListAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
+class TodayAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -36,7 +36,9 @@ class TodayAdapter : ListAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallba
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        (holder as MovieViewHolder).bind(getItem(position))
+        getItem(position)?.let {
+            (holder as MovieViewHolder).bind(it)
+        }
     }
 
     class MovieViewHolder(

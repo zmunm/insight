@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 interface MovieService {
     suspend fun fetchTopRated(
         page: Int?
-    ): Flow<List<Movie>>
+    ): List<Movie>
 }

@@ -69,8 +69,8 @@ dependencies {
     implementation(project(":repository"))
 
     //region remote service
-    implementation(project(":service:remote:retrofit"))
-    // implementation(project(":service:remote:ktor"))
+    // implementation(project(":service:remote:retrofit"))
+    implementation(project(":service:remote:ktor"))
     //endregion
 
     implementation(project(":service:local:room"))
