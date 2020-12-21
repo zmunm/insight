@@ -15,7 +15,7 @@ import javax.inject.Singleton
 internal object NetworkModule {
     @Provides
     @Singleton
-    internal fun provideMovieService(): MovieService = MovieServiceImpl(
+    fun provideMovieService(): MovieService = MovieServiceImpl(
         RetrofitInstance().create(MovieApi::class.java)
     )
 }

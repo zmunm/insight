@@ -19,7 +19,7 @@ import javax.inject.Singleton
 internal object NetworkModule {
     @Provides
     @Singleton
-    internal fun provideMovieService(): MovieService = MovieServiceImpl(
+    fun provideMovieService(): MovieService = MovieServiceImpl(
         MovieApi(
             HttpClient(CIO) {
                 install(JsonFeature) {

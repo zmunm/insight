@@ -73,6 +73,8 @@ dependencies {
     // implementation(project(":service:remote:ktor"))
     //endregion
 
+    implementation(project(":service:local:room"))
+
     implementation("androidx.startup:startup-runtime:1.0.0")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")

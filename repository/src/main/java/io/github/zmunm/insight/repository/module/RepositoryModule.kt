@@ -7,6 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.repository.MovieRepository
 import io.github.zmunm.insight.repository.datasource.MovieDataSource
+import io.github.zmunm.insight.repository.service.MovieCache
 import io.github.zmunm.insight.repository.service.MovieService
 
 @Module
@@ -16,8 +17,10 @@ internal object RepositoryModule {
     @Reusable
     @Provides
     fun provideMovieRepository(
-        movieService: MovieService
+        movieService: MovieService,
+        movieCache: MovieCache,
     ): MovieRepository = MovieDataSource(
-        movieService
+        movieService,
+        movieCache,
     )
 }
