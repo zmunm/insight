@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui
+package io.github.zmunm.insight.ui.top
 
 import android.os.Bundle
 import android.view.View
@@ -6,7 +6,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.zmunm.insight.R
-import io.github.zmunm.insight.TopRatedViewModel
 import io.github.zmunm.insight.databinding.FragmentTopRatedBinding
 import io.github.zmunm.insight.ui.adapter.TopRatedAdapter
 import io.github.zmunm.insight.ui.base.BaseFragment

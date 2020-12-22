@@ -1,4 +1,4 @@
-package io.github.zmunm.insight
+package io.github.zmunm.insight.ui.top
 
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject

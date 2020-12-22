@@ -3,7 +3,7 @@ package io.github.zmunm.insight.ui.adapter
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import io.github.zmunm.insight.ui.RecentFragment
-import io.github.zmunm.insight.ui.TopRatedFragment
+import io.github.zmunm.insight.ui.top.TopRatedFragment
 
 class MainPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
