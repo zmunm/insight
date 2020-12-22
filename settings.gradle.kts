@@ -9,5 +9,7 @@ include(
     ":service:remote:ktor",
 
     ":service:local:room",
-    ":service:local:realm"
+    ":service:local:realm",
+
+    ":feature:detail"
 )

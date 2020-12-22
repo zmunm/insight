@@ -13,12 +13,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.ListMovieBinding
 import io.github.zmunm.insight.entity.Movie
+import io.github.zmunm.insight.ui.MainPagerFragmentDirections
 
 class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
 
@@ -58,11 +60,11 @@ class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieD
             movie: Movie,
             view: View,
         ) {
-//            val direction =
-//                MainPagerFragmentDirections.actionViewPagerFragmentToPlantDetailFragment(
-//                    movie.id
-//                )
-//            view.findNavController().navigate(direction)
+            val direction =
+                MainPagerFragmentDirections.actionViewPagerFragmentToSingleDetailFragment(
+                    movie.id
+                )
+            view.findNavController().navigate(direction)
         }
 
         fun bind(item: Movie) {

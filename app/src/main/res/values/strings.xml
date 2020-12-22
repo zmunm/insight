@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">insight</string>
+    <string name="title_detail">Detail</string>
 </resources>

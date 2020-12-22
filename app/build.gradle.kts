@@ -53,6 +53,7 @@ android {
     packagingOptions {
         exclude("DebugProbesKt.bin")
     }
+    dynamicFeatures = mutableSetOf(":feature:detail")
 }
 
 tasks.withType<DokkaTask>().configureEach {
@@ -83,6 +84,7 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:2.3.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.3.2")
+    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.3.2")
 
     implementation("androidx.fragment:fragment-ktx:1.2.5")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
