@@ -11,10 +11,10 @@ import androidx.paging.PagingSource
 import androidx.paging.cachedIn
 import com.orhanobut.logger.Logger
 import io.github.zmunm.insight.entity.Movie
-import io.github.zmunm.insight.usecase.GetTodayMovies
+import io.github.zmunm.insight.usecase.GetTopRatedMovies
 
-class TodayViewModel @ViewModelInject constructor(
-    private val getTodayMovies: GetTodayMovies,
+class TopRatedViewModel @ViewModelInject constructor(
+    private val getTopRatedMovies: GetTopRatedMovies,
     @Assisted private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     fun getPager() = Pager(
@@ -25,7 +25,7 @@ class TodayViewModel @ViewModelInject constructor(
                 override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Movie> {
                     val page = params.key ?: 1
                     return try {
-                        val response = getTodayMovies(page)
+                        val response = getTopRatedMovies(page)
                         LoadResult.Page(
                             data = response,
                             prevKey = if (page == 1) null else page - 1,

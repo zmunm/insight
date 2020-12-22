@@ -10,7 +10,7 @@ internal class MovieDataSource(
     private val movieService: MovieService,
     private val movieCache: MovieCache
 ) : MovieRepository {
-    override suspend fun getTodayMovies(page: Int?): List<Movie> = movieService.fetchTopRated(page)
+    override suspend fun getTopRatedMovies(page: Int?): List<Movie> = movieService.fetchTopRated(page)
 
     override suspend fun getRecentMovies(): Flow<List<Movie>> = movieCache.getMovies()
 

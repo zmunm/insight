@@ -1,6 +1,7 @@
-package io.github.zmunm.insight
+package io.github.zmunm.insight.ui
 
 import dagger.hilt.android.AndroidEntryPoint
+import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.ActivityMainBinding
 import io.github.zmunm.insight.ui.base.BaseActivity
 

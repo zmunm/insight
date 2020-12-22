@@ -24,8 +24,8 @@ class MainPagerFragment : BaseFragment<FragmentMainPagerBinding>() {
 
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Today"
-                1 -> "Today"
+                0 -> "Top Rated"
+                1 -> "Recent"
                 else -> null
             }
         }.attach()

@@ -20,7 +20,7 @@ import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.ListMovieBinding
 import io.github.zmunm.insight.entity.Movie
 
-class TodayAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
+class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

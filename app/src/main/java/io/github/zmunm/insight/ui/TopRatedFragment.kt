@@ -6,27 +6,27 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.zmunm.insight.R
-import io.github.zmunm.insight.TodayViewModel
-import io.github.zmunm.insight.databinding.FragmentTodayBinding
-import io.github.zmunm.insight.ui.adapter.TodayAdapter
+import io.github.zmunm.insight.TopRatedViewModel
+import io.github.zmunm.insight.databinding.FragmentTopRatedBinding
+import io.github.zmunm.insight.ui.adapter.TopRatedAdapter
 import io.github.zmunm.insight.ui.base.BaseFragment
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class TodayFragment : BaseFragment<FragmentTodayBinding>() {
+class TopRatedFragment : BaseFragment<FragmentTopRatedBinding>() {
 
-    private val viewModel: TodayViewModel by viewModels()
+    private val viewModel: TopRatedViewModel by viewModels()
 
     private var pageJob: Job? = null
 
     override val layoutId: Int
-        get() = R.layout.fragment_today
+        get() = R.layout.fragment_top_rated
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val adapter = TodayAdapter()
+        val adapter = TopRatedAdapter()
         binding.list.adapter = adapter
 
         pageJob?.cancel()
