@@ -12,7 +12,6 @@ dependencies {
 
     implementation("com.google.dagger:dagger:2.30.1")
     implementation("com.google.dagger:hilt-android:2.30.1-alpha")
-    kapt("com.google.dagger:dagger-compiler:2.30.1")
     kapt("com.google.dagger:hilt-android-compiler:2.30.1-alpha")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
