@@ -69,8 +69,8 @@ dependencies {
     implementation(project(":repository"))
 
     //region remote service
-    // implementation(project(":service:remote:retrofit"))
-    implementation(project(":service:remote:ktor"))
+    implementation(project(":service:remote:retrofit"))
+    // implementation(project(":service:remote:ktor"))
     //endregion
 
     implementation(project(":service:local:room"))
@@ -78,31 +78,29 @@ dependencies {
     implementation("androidx.startup:startup-runtime:1.0.0")
     implementation("androidx.core:core-ktx:1.3.2")
     implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.2.1")
+    implementation("com.google.android.material:material:1.3.0")
     implementation("androidx.constraintlayout:constraintlayout:2.0.4")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.2")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
+    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
 
-    implementation("androidx.fragment:fragment-ktx:1.2.5")
+    implementation("androidx.fragment:fragment-ktx:1.3.3")
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1")
 
-    implementation("com.google.dagger:dagger:2.30.1")
-    implementation("com.google.dagger:hilt-android:2.30.1-alpha")
-    implementation("androidx.hilt:hilt-common:1.0.0-alpha02")
-    implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha02")
-    kapt("com.google.dagger:hilt-android-compiler:2.30.1-alpha")
-    kapt("androidx.hilt:hilt-compiler:1.0.0-alpha02")
+    implementation("com.google.dagger:dagger:2.35.1")
+    implementation("com.google.dagger:hilt-android:2.35.1")
+    implementation("androidx.hilt:hilt-common:1.0.0-beta01")
+    kapt("com.google.dagger:hilt-android-compiler:2.35.1")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC-native-mt")
 
-    implementation("androidx.paging:paging-runtime:3.0.0-alpha11")
+    implementation("androidx.paging:paging-runtime:3.0.0-rc01")
 
     implementation("com.orhanobut:logger:2.2.0")
 
-    testImplementation("junit:junit:4.13.1")
+    testImplementation("junit:junit:4.13.2")
 }

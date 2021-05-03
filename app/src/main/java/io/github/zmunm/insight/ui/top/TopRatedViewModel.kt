@@ -1,21 +1,24 @@
 package io.github.zmunm.insight.ui.top
 
-import androidx.hilt.Assisted
-import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import com.orhanobut.logger.Logger
+import dagger.assisted.Assisted
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.zmunm.insight.entity.Movie
 import io.github.zmunm.insight.usecase.GetTopRatedMovies
+import javax.inject.Inject
 
-class TopRatedViewModel @ViewModelInject constructor(
+@HiltViewModel
+class TopRatedViewModel @Inject constructor(
     private val getTopRatedMovies: GetTopRatedMovies,
-    @Assisted private val savedStateHandle: SavedStateHandle,
+    private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     fun getPager() = Pager(
         config = PagingConfig(enablePlaceholders = true, pageSize = 10),
@@ -36,6 +39,9 @@ class TopRatedViewModel @ViewModelInject constructor(
                         LoadResult.Error(exception)
                     }
                 }
+
+                override fun getRefreshKey(state: PagingState<Int, Movie>): Int? =
+                    state.anchorPosition
             }
         }
     ).flow
