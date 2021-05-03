@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import io.github.zmunm.insight.local.dao.MovieDao
-import io.github.zmunm.insight.local.table.MovieTable
+import io.github.zmunm.insight.local.dao.GameDao
+import io.github.zmunm.insight.local.table.GameTable
 
-@Database(entities = [MovieTable::class], version = 1, exportSchema = false)
+@Database(entities = [GameTable::class], version = 1, exportSchema = false)
 internal abstract class AppDatabase : RoomDatabase() {
-    abstract fun movieDao(): MovieDao
+    abstract fun gameDao(): GameDao
 
     companion object {
 

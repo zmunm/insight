@@ -3,7 +3,8 @@ plugins {
 }
 
 detekt {
-    failFast = true
+    buildUponDefaultConfig = true
+    allRules = true
     input = files("$projectDir/src/main/", "$projectDir/build.gradle.kts")
     autoCorrect = true
     config = files(

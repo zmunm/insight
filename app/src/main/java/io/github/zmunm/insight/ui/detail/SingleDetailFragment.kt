@@ -10,5 +10,4 @@ class SingleDetailFragment : BaseFragment<FragmentSingleDetailBinding>() {
 
     override val layoutId: Int
         get() = R.layout.fragment_single_detail
-
 }

@@ -5,9 +5,11 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.remote.RetrofitInstance
-import io.github.zmunm.insight.remote.api.MovieApi
-import io.github.zmunm.insight.remote.impl.MovieServiceImpl
-import io.github.zmunm.insight.repository.service.MovieService
+import io.github.zmunm.insight.remote.ServiceConst
+import io.github.zmunm.insight.remote.api.GameApi
+import io.github.zmunm.insight.remote.impl.GameServiceImpl
+import io.github.zmunm.insight.repository.service.GameService
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -15,7 +17,10 @@ import javax.inject.Singleton
 internal object NetworkModule {
     @Provides
     @Singleton
-    fun provideMovieService(): MovieService = MovieServiceImpl(
-        RetrofitInstance().create(MovieApi::class.java)
+    fun provideGameService(
+        @Named(ServiceConst.API_KEY)
+        apiKey: String,
+    ): GameService = GameServiceImpl(
+        RetrofitInstance(apiKey).create(GameApi::class.java)
     )
 }

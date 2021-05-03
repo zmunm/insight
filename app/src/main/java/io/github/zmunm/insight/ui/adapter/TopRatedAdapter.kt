@@ -18,20 +18,19 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import io.github.zmunm.insight.R
-import io.github.zmunm.insight.databinding.ListMovieBinding
-import io.github.zmunm.insight.entity.Movie
+import io.github.zmunm.insight.databinding.ListGameBinding
+import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.ui.MainPagerFragmentDirections
 
-class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieDiffCallback()) {
+class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiffCallback()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
     ): RecyclerView.ViewHolder =
-        MovieViewHolder(
-            DataBindingUtil.inflate(
+        GameViewHolder(
+            ListGameBinding.inflate(
                 LayoutInflater.from(parent.context),
-                R.layout.list_movie,
                 parent,
                 false
             )
@@ -39,17 +38,17 @@ class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieD
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         getItem(position)?.let {
-            (holder as MovieViewHolder).bind(it)
+            (holder as GameViewHolder).bind(it)
         }
     }
 
-    class MovieViewHolder(
-        private val binding: ListMovieBinding,
+    class GameViewHolder(
+        private val binding: ListGameBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
             binding.setClickListener {
-                binding.movie?.let { movie ->
-                    navigateToDetail(movie, it)
+                binding.game?.let { game ->
+                    navigateToDetail(game, it)
                 }
             }
 
@@ -57,19 +56,19 @@ class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieD
         }
 
         private fun navigateToDetail(
-            movie: Movie,
+            game: Game,
             view: View,
         ) {
             val direction =
                 MainPagerFragmentDirections.actionViewPagerFragmentToSingleDetailFragment(
-                    movie.id
+                    game.id
                 )
             view.findNavController().navigate(direction)
         }
 
-        fun bind(item: Movie) {
+        fun bind(item: Game) {
             binding.apply {
-                movie = item
+                game = item
                 executePendingBindings()
             }
         }
@@ -121,13 +120,13 @@ class TopRatedAdapter : PagingDataAdapter<Movie, RecyclerView.ViewHolder>(MovieD
     }
 }
 
-private class MovieDiffCallback : DiffUtil.ItemCallback<Movie>() {
+private class GameDiffCallback : DiffUtil.ItemCallback<Game>() {
 
-    override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-        return oldItem.id == newItem.id
+    override fun areItemsTheSame(oldItem: Game, newItem: Game): Boolean {
+        return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
-        return oldItem == newItem
+    override fun areContentsTheSame(oldItem: Game, newItem: Game): Boolean {
+        return oldItem.id == newItem.id
     }
 }

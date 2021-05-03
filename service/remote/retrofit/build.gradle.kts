@@ -26,5 +26,5 @@ dependencies {
 
     implementation("androidx.paging:paging-runtime:3.0.0-rc01")
 
-    implementation("com.orhanobut:logger:2.2.0")
+    implementation("com.jakewharton.timber:timber:4.7.1")
 }

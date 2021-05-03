@@ -1,3 +1,4 @@
+import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
@@ -9,10 +10,11 @@ plugins {
     detekt
     document
 }
+val rawgKey: String = gradleLocalProperties(rootDir).getProperty("rawg_key")
 
 android {
     compileSdkVersion(30)
-    buildToolsVersion = "30.0.2"
+    buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "io.github.zmunm.insight"
@@ -22,6 +24,8 @@ android {
         vectorDrawables.useSupportLibrary = true
         versionCode = 1
         versionName = "1.0"
+
+        buildConfigField("String", "RAWG_KEY", rawgKey)
     }
 
     buildFeatures {
@@ -92,15 +96,14 @@ dependencies {
 
     implementation("com.google.dagger:dagger:2.35.1")
     implementation("com.google.dagger:hilt-android:2.35.1")
-    implementation("androidx.hilt:hilt-common:1.0.0-beta01")
     kapt("com.google.dagger:hilt-android-compiler:2.35.1")
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.0-RC-native-mt")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.0-RC-native-mt")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
 
     implementation("androidx.paging:paging-runtime:3.0.0-rc01")
 
-    implementation("com.orhanobut:logger:2.2.0")
+    implementation("com.jakewharton.timber:timber:4.7.1")
 
     testImplementation("junit:junit:4.13.2")
 }

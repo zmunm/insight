@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.entity
 
-data class Movie(
+data class Game(
     val id: Int,
-    val title: String,
+    val name: String,
 )

@@ -10,8 +10,8 @@
             type="android.view.View.OnClickListener" />
 
         <variable
-            name="movie"
-            type="io.github.zmunm.insight.entity.Movie" />
+            name="game"
+            type="io.github.zmunm.insight.entity.Game" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -47,7 +47,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center_horizontal"
-                android:text="@{movie.title}"
+                android:text="@{game.name}"
                 android:textAppearance="?attr/textAppearanceListItem"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

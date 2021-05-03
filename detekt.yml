@@ -1,2 +1,6 @@
 build:
   maxIssues: 10
+
+naming:
+  ConstructorParameterNaming:
+    active: false

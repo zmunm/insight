@@ -17,7 +17,7 @@
             android:paddingEnd="12dp"
             app:layoutManager="androidx.recyclerview.widget.StaggeredGridLayoutManager"
             app:spanCount="3"
-            tools:listitem="@layout/list_movie" />
+            tools:listitem="@layout/list_game" />
 
     </FrameLayout>
 </layout>
