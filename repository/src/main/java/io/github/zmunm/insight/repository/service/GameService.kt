@@ -6,4 +6,8 @@ interface GameService {
     suspend fun fetchGames(
         page: Int?
     ): List<Game>
+
+    suspend fun fetchGameDetail(
+        id: Int
+    ): Game?
 }

@@ -8,7 +8,7 @@ interface GameRepository {
 
     suspend fun getRecentGames(): Flow<List<Game>>
 
-    suspend fun getGame(id: Int): Flow<Game>
+    suspend fun getGameDetail(id: Int) : Game?
 
     suspend fun insertAll(games: List<Game>)
 }

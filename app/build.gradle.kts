@@ -6,7 +6,6 @@ plugins {
     `kotlin-android`
     `kotlin-kapt`
     id("dagger.hilt.android.plugin")
-    id("androidx.navigation.safeargs.kotlin")
     detekt
     document
 }
@@ -30,6 +29,17 @@ android {
 
     buildFeatures {
         dataBinding = true
+    }
+
+    flavorDimensions(
+        Dimension.Remote.NAME,
+        Dimension.Local.NAME
+    )
+
+    productFlavors {
+        Dimension.Remote.Retrofit { register(it.flavor) { dimension(it.dimension) } }
+        Dimension.Remote.Ktor { register(it.flavor) { dimension(it.dimension) } }
+        Dimension.Local.Room { register(it.flavor) { dimension(it.dimension) } }
     }
 
     buildTypes {
@@ -72,38 +82,34 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
-    //region remote service
-    implementation(project(":service:remote:retrofit"))
-    // implementation(project(":service:remote:ktor"))
-    //endregion
+    Dimension.Remote.Retrofit.implement(project(":service:remote:retrofit"))
+    Dimension.Remote.Ktor.implement(project(":service:remote:retrofit"))
+    Dimension.Local.Room.implement(project(":service:local:room"))
 
-    implementation(project(":service:local:room"))
+    implementation(Dependency.ANDROID_STARTUP)
+    implementation(Dependency.ANDROID_KTX)
+    implementation(Dependency.ANDROID_FRAGMENT_KTX)
+    implementation(Dependency.ANDROID_APPCOMPAT)
+    implementation(Dependency.ANDROID_MATERIAL)
+    implementation(Dependency.ANDROID_CONSTRAINT)
+    implementation(Dependency.ANDROID_SWIPE_REFRESH)
 
-    implementation("androidx.startup:startup-runtime:1.0.0")
-    implementation("androidx.core:core-ktx:1.3.2")
-    implementation("androidx.appcompat:appcompat:1.2.0")
-    implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.0.4")
+    implementation(Dependency.LIFECYCLE)
+    implementation(Dependency.LIFECYCLE_LIVEDATA)
+    implementation(Dependency.LIFECYCLE_VIEWMODEL)
+    implementation(Dependency.LIFECYCLE_SAVED_STATE)
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.3.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.3.5")
+    implementation(Dependency.HILT)
+    kapt(Dependency.HILT_APT)
 
-    implementation("androidx.fragment:fragment-ktx:1.3.3")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1")
+    implementation(Dependency.COROUTINE)
 
-    implementation("com.google.dagger:dagger:2.35.1")
-    implementation("com.google.dagger:hilt-android:2.35.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.35.1")
+    implementation(Dependency.PAGING)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
+    implementation(Dependency.GLIDE)
+    kapt(Dependency.GLIDE_APT)
 
-    implementation("androidx.paging:paging-runtime:3.0.0-rc01")
+    implementation(Dependency.TIMBER)
 
-    implementation("com.jakewharton.timber:timber:4.7.1")
-
-    testImplementation("junit:junit:4.13.2")
+    testImplementation(Dependency.JUNIT)
 }

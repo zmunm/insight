@@ -1,5 +1,6 @@
 package io.github.zmunm.insight.ui.adapter
 
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
@@ -12,15 +13,13 @@ import android.graphics.Shader
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import io.github.zmunm.insight.R
+import io.github.zmunm.insight.Params
 import io.github.zmunm.insight.databinding.ListGameBinding
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.ui.MainPagerFragmentDirections
+import io.github.zmunm.insight.ui.detail.SingleDetailActivity
 
 class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiffCallback()) {
 
@@ -46,9 +45,12 @@ class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDif
         private val binding: ListGameBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
         init {
-            binding.setClickListener {
+            binding.setClickListener { view ->
                 binding.game?.let { game ->
-                    navigateToDetail(game, it)
+                    view.context.startActivity(
+                        Intent(view.context, SingleDetailActivity::class.java)
+                            .putExtra(Params.GAME_ID, game.id)
+                    )
                 }
             }
 
@@ -59,11 +61,7 @@ class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDif
             game: Game,
             view: View,
         ) {
-            val direction =
-                MainPagerFragmentDirections.actionViewPagerFragmentToSingleDetailFragment(
-                    game.id
-                )
-            view.findNavController().navigate(direction)
+
         }
 
         fun bind(item: Game) {

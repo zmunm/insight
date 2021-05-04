@@ -14,7 +14,7 @@ internal class GameDataSource(
 
     override suspend fun getRecentGames(): Flow<List<Game>> = gameCache.getGames()
 
-    override suspend fun getGame(id: Int): Flow<Game> = gameCache.getGame(id)
+    override suspend fun getGameDetail(id: Int): Game? = gameService.fetchGameDetail(id)
 
     override suspend fun insertAll(games: List<Game>) {
         gameCache.insertAll(games)

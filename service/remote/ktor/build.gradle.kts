@@ -11,18 +11,16 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
-    implementation("com.google.dagger:dagger:2.35.1")
-    implementation("com.google.dagger:hilt-android:2.35.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.35.1")
+    implementation(Dependency.HILT)
+    kapt(Dependency.HILT_APT)
 
-    implementation("io.ktor:ktor-client-android:1.5.4")
-    implementation("io.ktor:ktor-client-cio:1.5.4")
-    implementation("io.ktor:ktor-client-serialization-jvm:1.5.4")
+    implementation(Dependency.KTOR_ANDROID)
+    implementation(Dependency.KTOR_CIO)
+    implementation(Dependency.KTOR_SERIALIZATION)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
+    implementation(Dependency.COROUTINE)
 
-    implementation("androidx.paging:paging-runtime:3.0.0-rc01")
+    implementation(Dependency.PAGING)
 
-    implementation("com.jakewharton.timber:timber:4.7.1")
+    implementation(Dependency.TIMBER)
 }

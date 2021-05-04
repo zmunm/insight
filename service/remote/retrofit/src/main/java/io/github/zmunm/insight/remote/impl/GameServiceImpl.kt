@@ -15,8 +15,19 @@ internal class GameServiceImpl(
         body()?.results?.map { responseGame ->
             Game(
                 responseGame.id,
-                responseGame.name
+                responseGame.name,
+                responseGame.background_image
             )
         } ?: emptyList()
+    }
+
+    override suspend fun fetchGameDetail(
+        id: Int
+    ): Game? = gameApi.fetchGameDetail(id).body()?.let { detail ->
+        Game(
+            detail.id,
+            detail.name,
+            detail.background_image
+        )
     }
 }

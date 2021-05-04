@@ -23,6 +23,5 @@ dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.16.0")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
-    implementation("com.google.dagger:hilt-android-gradle-plugin:2.31.2-alpha")
-    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.35.1")
 }

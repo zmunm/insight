@@ -8,14 +8,15 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 internal class GameCacheImpl(
-    private val gameDao: GameDao
+    private val gameDao: GameDao,
 ) : GameCache {
 
     override suspend fun getGames(): Flow<List<Game>> = gameDao.getGames().map { list ->
         list.map {
             Game(
                 it.id,
-                it.title
+                it.title,
+                it.backgroundImage,
             )
         }
     }
@@ -23,7 +24,8 @@ internal class GameCacheImpl(
     override suspend fun getGame(id: Int): Flow<Game> = gameDao.getGame(id).map {
         Game(
             it.id,
-            it.title
+            it.title,
+            it.backgroundImage,
         )
     }
 
@@ -31,7 +33,8 @@ internal class GameCacheImpl(
         games.map {
             GameTable(
                 it.id,
-                it.name
+                it.name,
+                it.backgroundImage,
             )
         }
     )

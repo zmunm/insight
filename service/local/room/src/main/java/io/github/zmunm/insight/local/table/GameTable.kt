@@ -7,4 +7,5 @@ import androidx.room.PrimaryKey
 internal data class GameTable(
     @PrimaryKey val id: Int,
     val title: String,
+    val backgroundImage: String
 )
