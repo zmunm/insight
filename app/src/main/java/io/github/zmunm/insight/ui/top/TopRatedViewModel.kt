@@ -1,6 +1,5 @@
 package io.github.zmunm.insight.ui.top
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Pager
@@ -17,7 +16,6 @@ import javax.inject.Inject
 @HiltViewModel
 class TopRatedViewModel @Inject constructor(
     private val getGames: GetGames,
-    private val savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     fun getPager() = Pager(
         config = PagingConfig(enablePlaceholders = true, pageSize = 20),

@@ -11,7 +11,6 @@ import android.graphics.PorterDuff
 import android.graphics.RectF
 import android.graphics.Shader
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
@@ -55,13 +54,6 @@ class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDif
             }
 
             binding.image.setImageBitmap(bitmap)
-        }
-
-        private fun navigateToDetail(
-            game: Game,
-            view: View,
-        ) {
-
         }
 
         fun bind(item: Game) {

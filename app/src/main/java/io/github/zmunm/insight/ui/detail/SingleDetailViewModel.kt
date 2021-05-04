@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.zmunm.insight.Params
 import io.github.zmunm.insight.usecase.GetGameDetail
-import io.github.zmunm.insight.usecase.GetGames
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject

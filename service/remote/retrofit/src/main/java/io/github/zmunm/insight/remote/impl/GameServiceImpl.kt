@@ -3,7 +3,6 @@ package io.github.zmunm.insight.remote.impl
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.remote.api.GameApi
 import io.github.zmunm.insight.repository.service.GameService
-import timber.log.Timber
 
 internal class GameServiceImpl(
     private val gameApi: GameApi,
