@@ -8,7 +8,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 internal class GameDataSource(
     private val gameService: GameService,
@@ -20,7 +19,7 @@ internal class GameDataSource(
 
     override fun getGameDetail(id: Int): Flow<Game> {
         CoroutineScope(Dispatchers.IO).launch {
-            if(!gameCache.hasGame(id)) {
+            if (!gameCache.hasGame(id)) {
                 refreshGameDetail(id)
             }
         }

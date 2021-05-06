@@ -6,10 +6,10 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.zmunm.insight.databinding.ListGameBinding
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.ui.adapter.diff.GameDiffCallback
+import io.github.zmunm.insight.ui.adapter.diff.GameDiff
 import io.github.zmunm.insight.ui.adapter.viewholder.GameViewHolder
 
-class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiffCallback()) {
+class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiff()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,

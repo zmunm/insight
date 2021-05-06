@@ -11,6 +11,8 @@ fun isNonStable(version: String): Boolean {
     return isStable.not()
 }
 
+tasks.create("dependencyUpdatesPreview", DependencyUpdatesTask::class.java)
+
 tasks.named("dependencyUpdates", DependencyUpdatesTask::class.java).configure {
     // using the full syntax
     resolutionStrategy {

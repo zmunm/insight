@@ -2,16 +2,14 @@ package io.github.zmunm.insight.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.paging.PagingDataAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import io.github.zmunm.insight.databinding.ListGameBinding
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.ui.adapter.diff.GameDiffCallback
+import io.github.zmunm.insight.ui.adapter.diff.GameDiff
 import io.github.zmunm.insight.ui.adapter.viewholder.GameViewHolder
 
-class RecentAdapter : ListAdapter<Game, RecyclerView.ViewHolder>(GameDiffCallback()) {
+class RecentAdapter : ListAdapter<Game, RecyclerView.ViewHolder>(GameDiff()) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
