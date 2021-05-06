@@ -1,0 +1,13 @@
+package io.github.zmunm.insight.remote.dao
+
+import kotlinx.serialization.Serializable
+
+@Serializable
+internal data class AddedByStatus(
+    val beaten: Int,
+    val dropped: Int,
+    val owned: Int,
+    val playing: Int,
+    val toplay: Int,
+    val yet: Int
+)
