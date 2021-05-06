@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class ParentPlatform(
+internal data class ParentPlatform(
     val id: Int,
     val name: String,
     val slug: String

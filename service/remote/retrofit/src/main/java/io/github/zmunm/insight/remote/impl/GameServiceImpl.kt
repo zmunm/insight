@@ -22,11 +22,13 @@ internal class GameServiceImpl(
 
     override suspend fun fetchGameDetail(
         id: Int
-    ): Game? = gameApi.fetchGameDetail(id).body()?.let { detail ->
-        Game(
-            detail.id,
-            detail.name,
-            detail.background_image
-        )
+    ): Game = gameApi.fetchGameDetail(id).run {
+        body()?.let { detail ->
+            Game(
+                detail.id,
+                detail.name,
+                detail.background_image
+            )
+        } ?: error(id.toString())
     }
 }

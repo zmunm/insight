@@ -6,7 +6,7 @@ plugins {
 subprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 

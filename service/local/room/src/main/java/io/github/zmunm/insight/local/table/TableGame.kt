@@ -2,10 +2,12 @@ package io.github.zmunm.insight.local.table
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.util.*
 
 @Entity(tableName = "games")
-internal data class GameTable(
+internal data class TableGame(
     @PrimaryKey val id: Int,
-    val title: String,
-    val backgroundImage: String
+    val name: String,
+    val backgroundImage: String,
+    val addedAt: Date = Date(),
 )

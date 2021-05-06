@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class Store(
+internal data class Store(
     val domain: String,
     val games_count: Int,
     val id: Int,

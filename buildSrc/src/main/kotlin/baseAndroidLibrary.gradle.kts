@@ -10,8 +10,4 @@ android {
         minSdkVersion(24)
         targetSdkVersion(30)
     }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
 }

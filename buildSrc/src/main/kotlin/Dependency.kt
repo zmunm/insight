@@ -36,7 +36,7 @@ object Dependency {
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1"
     const val LIFECYCLE_SAVED_STATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1"
 
-    const val PAGING = "androidx.paging:paging-runtime:3.0.0-rc01"
+    const val PAGING = "androidx.paging:paging-runtime:3.0.0"
 
     const val GLIDE = "com.github.bumptech.glide:glide:4.12.0"
     const val GLIDE_APT = "com.github.bumptech.glide:compiler:4.12.0"

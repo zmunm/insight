@@ -17,6 +17,6 @@ class SingleDetailActivity : BaseActivity<ActivitySingleDetailBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel
+        binding.viewModel = viewModel
     }
 }

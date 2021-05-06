@@ -1,5 +1,5 @@
 package io.github.zmunm.insight.remote.dao
 
-data class ParentPlatformStatus(
+internal data class ParentPlatformStatus(
     val platform: ParentPlatform
 )

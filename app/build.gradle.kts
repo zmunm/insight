@@ -37,9 +37,9 @@ android {
     )
 
     productFlavors {
-        Dimension.Remote.Retrofit { register(it.flavor) { dimension(it.dimension) } }
-        Dimension.Remote.Ktor { register(it.flavor) { dimension(it.dimension) } }
-        Dimension.Local.Room { register(it.flavor) { dimension(it.dimension) } }
+        Dimension.Remote.Retrofit { create(it.flavor) { dimension(it.dimension) } }
+        Dimension.Remote.Ktor { create(it.flavor) { dimension(it.dimension) } }
+        Dimension.Local.Room { create(it.flavor) { dimension(it.dimension) } }
     }
 
     buildTypes {
@@ -53,17 +53,7 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
 
-        freeCompilerArgs = freeCompilerArgs +
-            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi" +
-            "-Xopt-in=kotlinx.coroutines.FlowPreview"
-    }
     packagingOptions {
         exclude("DebugProbesKt.bin")
     }

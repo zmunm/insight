@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class Rating(
+internal data class Rating(
     val count: Int,
     val id: Int,
     val percent: Double,

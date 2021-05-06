@@ -4,10 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import io.github.zmunm.insight.local.converter.DateConverter
 import io.github.zmunm.insight.local.dao.GameDao
-import io.github.zmunm.insight.local.table.GameTable
+import io.github.zmunm.insight.local.table.TableGame
 
-@Database(entities = [GameTable::class], version = 1, exportSchema = false)
+@Database(entities = [TableGame::class], version = 1, exportSchema = false)
+@TypeConverters(DateConverter::class)
 internal abstract class AppDatabase : RoomDatabase() {
     abstract fun gameDao(): GameDao
 

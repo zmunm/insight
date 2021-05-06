@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class Platform(
+internal data class Platform(
     val games_count: Int,
     val id: Int,
     val image: String?,

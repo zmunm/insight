@@ -4,14 +4,13 @@ plugins {
 
 repositories {
     gradlePluginPortal()
-    jcenter()
     google()
     mavenCentral()
 }
 
 object PluginVersion {
-    const val ANDROID_TOOL = "4.1.3"
-    const val KOTLIN = "1.4.20"
+    const val ANDROID_TOOL = "4.2.0"
+    const val KOTLIN = "1.5.0"
     const val DOKKA = "1.4.10"
     const val VERSIONING = "0.36.0"
 }

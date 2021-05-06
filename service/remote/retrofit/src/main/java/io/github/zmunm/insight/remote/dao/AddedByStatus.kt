@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class AddedByStatus(
+internal data class AddedByStatus(
     val beaten: Int,
     val dropped: Int,
     val owned: Int,

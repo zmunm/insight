@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class ResponseGameDetail(
+internal data class ResponseGameDetail(
     val achievements_count: Int,
     val added: Int,
     val added_by_status: AddedByStatus,
@@ -14,7 +14,7 @@ data class ResponseGameDetail(
     val description_raw: String,
     val developers: List<Developer>,
     val dominant_color: String,
-    val esrb_rating: EsrbRating,
+    val esrb_rating: EsrbRating?,
     val game_series_count: Int,
     val genres: List<Genre>,
     val id: Int,

@@ -6,9 +6,9 @@ import kotlinx.coroutines.flow.Flow
 interface GameRepository {
     suspend fun getGames(page: Int?): List<Game>
 
-    suspend fun getRecentGames(): Flow<List<Game>>
+    fun getRecentGames(): Flow<List<Game>>
 
-    suspend fun getGameDetail(id: Int): Game?
+    fun getGameDetail(id: Int): Flow<Game>
 
     suspend fun insertAll(games: List<Game>)
 }

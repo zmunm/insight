@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class Developer(
+internal data class Developer(
     val games_count: Int,
     val id: Int,
     val image_background: String,

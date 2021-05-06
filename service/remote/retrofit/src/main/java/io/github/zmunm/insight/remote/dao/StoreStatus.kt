@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class StoreStatus(
+internal data class StoreStatus(
     val id: Int,
     val store: Store,
     val url: String?,

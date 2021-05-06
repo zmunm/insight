@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.remote.dao
 
-data class ResponseGame(
+internal data class ResponseGame(
     val added: Int,
     val added_by_status: AddedByStatus,
     val background_image: String,
