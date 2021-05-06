@@ -1,5 +1,5 @@
 sealed class Dimension(
-    val dimension: String,
+    val type: String,
     val flavor: String
 ) {
     sealed class Remote(flavor: String) : Dimension(
@@ -21,10 +21,10 @@ sealed class Dimension(
         object Room : Local("room")
 
         companion object {
-            const val NAME = "remote"
+            const val NAME = "local"
         }
     }
 
     val implement = "${flavor}Implementation"
-    operator fun invoke(action: (Dimension) -> Unit) = action(this)
+    operator fun invoke(action: Dimension.() -> Unit) = action()
 }
