@@ -9,8 +9,8 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":usecase"))
 
+    implementation(Dependency.COROUTINE)
+
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
-
-    implementation(Dependency.PAGING)
 }

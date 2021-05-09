@@ -22,7 +22,5 @@ dependencies {
 
     implementation(Dependency.COROUTINE)
 
-    implementation(Dependency.PAGING)
-
     implementation(Dependency.TIMBER)
 }

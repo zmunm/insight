@@ -1,6 +1,7 @@
 plugins {
     baseAndroidLibrary
     `kotlin-kapt`
+    `realm-android`
     detekt
     document
 }
@@ -10,12 +11,10 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
+    implementation(Dependency.ANDROID_STARTUP)
+
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
-
-    implementation(Dependency.ROOM_RUNTIME)
-    implementation(Dependency.ROOM_KTX)
-    kapt(Dependency.ROOM_COMPILER)
 
     implementation(Dependency.COROUTINE)
 

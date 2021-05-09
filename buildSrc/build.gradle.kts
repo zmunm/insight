@@ -23,4 +23,5 @@ dependencies {
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.35.1")
+    implementation("io.realm:realm-gradle-plugin:10.4.0")
 }

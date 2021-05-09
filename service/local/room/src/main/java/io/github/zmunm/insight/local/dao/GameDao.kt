@@ -30,8 +30,8 @@ internal interface GameDao {
     suspend fun putGame(game: TableGame)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAll(plants: List<TableGame>)
+    suspend fun insertAll(games: List<TableGame>)
 
     @Delete
-    suspend fun deleteGame(tableGame: TableGame)
+    suspend fun deleteGame(game: TableGame)
 }

@@ -2,6 +2,8 @@ package io.github.zmunm.insight.remote.impl
 
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.remote.api.GameApi
+import io.github.zmunm.insight.remote.dao.ResponseGame
+import io.github.zmunm.insight.remote.dao.ResponseGameDetail
 import io.github.zmunm.insight.repository.service.GameService
 
 internal class GameServiceImpl(
@@ -9,19 +11,21 @@ internal class GameServiceImpl(
 ) : GameService {
     override suspend fun fetchGames(page: Int?): List<Game> =
         gameApi.fetchGames(page).results.map { response ->
-            Game(
-                response.id,
-                response.name,
-                response.background_image,
-            )
+            response.toEntity()
         }
 
     override suspend fun fetchGameDetail(id: Int): Game =
-        gameApi.fetchGameDetail(id).let { detail ->
-            Game(
-                detail.id,
-                detail.name,
-                detail.background_image
-            )
-        }
+        gameApi.fetchGameDetail(id).toEntity()
+
+    private fun ResponseGame.toEntity(): Game = Game(
+        id = id,
+        name = name,
+        backgroundImage = background_image,
+    )
+
+    private fun ResponseGameDetail.toEntity(): Game = Game(
+        id = id,
+        name = name,
+        backgroundImage = background_image,
+    )
 }

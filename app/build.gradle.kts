@@ -40,6 +40,7 @@ android {
         Dimension.Remote.Retrofit { create(flavor) { dimension(type) } }
         Dimension.Remote.Ktor { create(flavor) { dimension(type) } }
         Dimension.Local.Room { create(flavor) { dimension(type) } }
+        Dimension.Local.Realm { create(flavor) { dimension(type) } }
     }
 
     buildTypes {
@@ -79,6 +80,9 @@ dependencies {
         implement(project(":service:$type:$flavor"))
     }
     Dimension.Local.Room {
+        implement(project(":service:$type:$flavor"))
+    }
+    Dimension.Local.Realm {
         implement(project(":service:$type:$flavor"))
     }
 

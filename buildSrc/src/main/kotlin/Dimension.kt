@@ -19,6 +19,7 @@ sealed class Dimension(
         flavor
     ) {
         object Room : Local("room")
+        object Realm : Local("realm")
 
         companion object {
             const val NAME = "local"
