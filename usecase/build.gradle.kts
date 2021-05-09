@@ -1,7 +1,19 @@
 plugins {
     kotlin
+    testing
     detekt
     document
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test)
+    reports {
+        html.isEnabled = true
+    }
 }
 
 dependencies {
