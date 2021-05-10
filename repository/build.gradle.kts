@@ -1,6 +1,7 @@
 plugins {
     baseAndroidLibrary
     `kotlin-kapt`
+    `testing-android`
     detekt
     document
 }

@@ -55,6 +55,12 @@ android {
         }
     }
 
+    testOptions {
+        unitTests.all {
+            it.useJUnitPlatform()
+        }
+    }
+
     packagingOptions {
         exclude("DebugProbesKt.bin")
     }
