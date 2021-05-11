@@ -1,5 +1,4 @@
 plugins {
-    document
     versioning
 }
 

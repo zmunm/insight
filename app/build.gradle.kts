@@ -7,8 +7,8 @@ plugins {
     `kotlin-kapt`
     id("dagger.hilt.android.plugin")
     detekt
-    document
 }
+
 val rawgKey: String = gradleLocalProperties(rootDir).getProperty(Const.RAWG_KEY)
 
 android {

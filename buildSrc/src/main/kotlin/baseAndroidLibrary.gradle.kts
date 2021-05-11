@@ -22,7 +22,6 @@ android {
                     it.outputs.upToDateWhen {
                         false
                     }
-                    // test jvm의 standard out and standard error을 console에 출력한다.
                     showStandardStreams = true
                     showCauses = true
                     showExceptions = true

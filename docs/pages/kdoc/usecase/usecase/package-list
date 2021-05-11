@@ -1,0 +1,21 @@
+$dokka.format:jekyll-v1
+$dokka.linkExtension:md
+$dokka.location:io.github.zmunm.insight.repository////PointingToDeclaration/usecase/io.github.zmunm.insight.repository/index.md
+$dokka.location:io.github.zmunm.insight.repository/GameRepository///PointingToDeclaration/usecase/io.github.zmunm.insight.repository/-game-repository/index.md
+$dokka.location:io.github.zmunm.insight.repository/GameRepository/getGameDetail/#kotlin.Int/PointingToDeclaration/usecase/io.github.zmunm.insight.repository/-game-repository/get-game-detail.md
+$dokka.location:io.github.zmunm.insight.repository/GameRepository/getGames/#kotlin.Int?/PointingToDeclaration/usecase/io.github.zmunm.insight.repository/-game-repository/get-games.md
+$dokka.location:io.github.zmunm.insight.repository/GameRepository/getRecentGames/#/PointingToDeclaration/usecase/io.github.zmunm.insight.repository/-game-repository/get-recent-games.md
+$dokka.location:io.github.zmunm.insight.repository/GameRepository/insertAll/#kotlin.collections.List[io.github.zmunm.insight.entity.Game]/PointingToDeclaration/usecase/io.github.zmunm.insight.repository/-game-repository/insert-all.md
+$dokka.location:io.github.zmunm.insight.usecase////PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/index.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGameDetail///PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-game-detail/index.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGameDetail/GetGameDetail/#io.github.zmunm.insight.repository.GameRepository/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-game-detail/-get-game-detail.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGameDetail/invoke/#kotlin.Int/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-game-detail/invoke.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGames///PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-games/index.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGames/GetGames/#io.github.zmunm.insight.repository.GameRepository/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-games/-get-games.md
+$dokka.location:io.github.zmunm.insight.usecase/GetGames/invoke/#kotlin.Int/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-games/invoke.md
+$dokka.location:io.github.zmunm.insight.usecase/GetRecentGames///PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-recent-games/index.md
+$dokka.location:io.github.zmunm.insight.usecase/GetRecentGames/GetRecentGames/#io.github.zmunm.insight.repository.GameRepository/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-recent-games/-get-recent-games.md
+$dokka.location:io.github.zmunm.insight.usecase/GetRecentGames/invoke/#/PointingToDeclaration/usecase/io.github.zmunm.insight.usecase/-get-recent-games/invoke.md
+io.github.zmunm.insight.repository
+io.github.zmunm.insight.usecase
+

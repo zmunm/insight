@@ -1,0 +1,16 @@
+$dokka.format:jekyll-v1
+$dokka.linkExtension:md
+$dokka.location:io.github.zmunm.insight.repository.service////PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/index.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache.Companion///PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/-companion/index.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache.Companion/FRESH_TIMEOUT/#/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/-companion/-f-r-e-s-h_-t-i-m-e-o-u-t.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache///PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/index.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache/getGame/#kotlin.Int/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/get-game.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache/getGames/#/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/get-games.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache/hasGame/#kotlin.Int#kotlin.Long/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/has-game.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache/insertAll/#kotlin.collections.List[io.github.zmunm.insight.entity.Game]/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/insert-all.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameCache/putGame/#io.github.zmunm.insight.entity.Game/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-cache/put-game.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameService///PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/index.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameService/fetchGameDetail/#kotlin.Int/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/fetch-game-detail.md
+$dokka.location:io.github.zmunm.insight.repository.service/GameService/fetchGames/#kotlin.Int?/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/fetch-games.md
+io.github.zmunm.insight.repository.service
+

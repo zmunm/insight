@@ -85,3 +85,7 @@ lint/tmp/
 # lint/reports/
 
 .idea/
+
+_site/
+
+.jekyll-cache/

@@ -1,0 +1,25 @@
+repository: zmunm/insight
+title: Insight
+name: zmunm
+email: atheist2197@gmail.com
+description: >-
+  Sample of Android Clean Architecture using Hilt, Startup.
+  Assemble the data layer by build flavor.
+baseurl: "/insight"
+url: "https://zmunm.github.io"
+locale: "en-US"
+github_username: zmunm
+
+plugins:
+  - jekyll-remote-theme
+  - jekyll-include-cache
+  - jekyll-relative-links
+
+remote_theme: zmunm/minimal-mistakes
+
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single

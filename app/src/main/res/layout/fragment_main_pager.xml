@@ -25,9 +25,9 @@
                 style="@style/Widget.MaterialComponents.Toolbar.Surface"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:titleTextColor="?attr/colorPrimary"
+                app:title="@string/app_name"
                 app:titleTextAppearance="@style/Headline5"
-                app:title="@string/app_name"/>
+                app:titleTextColor="?attr/colorPrimary" />
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabs"
@@ -37,6 +37,23 @@
 
 
         </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:fabAlignmentMode="end"
+            app:hideOnScroll="true" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/search"
+            android:text="@string/search"
+            app:layout_anchor="@id/bar"
+            app:srcCompat="@drawable/ic_search" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
