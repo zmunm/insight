@@ -9,7 +9,7 @@ plugins {
     detekt
     document
 }
-val rawgKey: String = gradleLocalProperties(rootDir).getProperty("rawg_key")
+val rawgKey: String = gradleLocalProperties(rootDir).getProperty(Const.RAWG_KEY)
 
 android {
     compileSdkVersion(30)
@@ -24,7 +24,7 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "RAWG_KEY", rawgKey)
+        buildConfigField("String", Const.RAWG_KEY, "\"$rawgKey\"")
     }
 
     buildFeatures {
