@@ -2,6 +2,7 @@ plugins {
     baseAndroidLibrary
     `kotlin-kapt`
     `realm-android`
+    `testing-android`
     detekt
     document
 }

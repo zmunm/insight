@@ -4,11 +4,7 @@ import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
-import android.os.Bundle
 import android.view.View
-import androidx.core.os.bundleOf
-
-fun Map<String, Any?>.toBundle(): Bundle = bundleOf(*toList().toTypedArray())
 
 fun View.getActivity(): Activity = context.getActivity()
 

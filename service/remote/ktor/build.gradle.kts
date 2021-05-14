@@ -2,6 +2,7 @@ plugins {
     baseAndroidLibrary
     `kotlinx-serialization`
     `kotlin-kapt`
+    `testing-android`
     detekt
     document
 }

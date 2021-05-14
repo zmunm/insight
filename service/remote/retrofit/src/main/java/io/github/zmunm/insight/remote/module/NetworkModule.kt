@@ -15,12 +15,13 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
+    private const val BASE_URL = "https://api.rawg.io/api/"
     @Provides
     @Singleton
     fun provideGameService(
         @Named(Const.API_KEY)
         apiKey: String,
     ): GameService = GameServiceImpl(
-        RetrofitInstance(apiKey).create(GameApi::class.java)
+        RetrofitInstance(BASE_URL, apiKey).create(GameApi::class.java)
     )
 }

@@ -14,4 +14,6 @@ dependencies {
 
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
+
+    implementation(Dependency.TIMBER)
 }

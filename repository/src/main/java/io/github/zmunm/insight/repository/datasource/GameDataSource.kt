@@ -1,17 +1,20 @@
 package io.github.zmunm.insight.repository.datasource
 
+import android.annotation.SuppressLint
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.GameRepository
+import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.repository.service.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 internal class GameDataSource(
     private val gameService: GameService,
-    private val gameCache: GameCache
+    private val gameCache: GameCache,
 ) : GameRepository {
     override suspend fun getGames(page: Int?): List<Game> = gameService.fetchGames(page)
 
@@ -30,7 +33,18 @@ internal class GameDataSource(
         gameCache.insertAll(games)
     }
 
+    @SuppressLint("TimberExceptionLogging")
     private suspend fun refreshGameDetail(id: Int) {
-        gameCache.putGame(gameService.fetchGameDetail(id))
+        gameService.fetchGameDetail(id)
+            .onSuccess {
+                gameCache.putGame(it)
+            }
+            .onFailure {
+                if (it is KnownThrowable) {
+                    Timber.i(it.message)
+                } else {
+                    Timber.e(it)
+                }
+            }
     }
 }

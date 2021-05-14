@@ -2,6 +2,10 @@ plugins {
     jacoco
 }
 
+jacoco {
+    toolVersion = "0.8.7"
+}
+
 tasks.register<JacocoReport>("jacocoTestReport") {
     dependsOn("testDebugUnitTest")
     val classFiles = fileTree("$buildDir/tmp/kotlin-classes/debug")

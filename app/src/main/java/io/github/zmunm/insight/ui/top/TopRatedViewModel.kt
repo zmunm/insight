@@ -10,7 +10,6 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.ui.base.BaseViewModel
 import io.github.zmunm.insight.usecase.GetGames
-import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
@@ -24,17 +23,12 @@ class TopRatedViewModel @Inject constructor(
 
                 override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Game> {
                     val page = params.key ?: 1
-                    return try {
-                        val response = getGames(page)
-                        LoadResult.Page(
-                            data = response,
-                            prevKey = if (page == 1) null else page - 1,
-                            nextKey = if (response.isEmpty()) null else page + 1
-                        )
-                    } catch (exception: Exception) {
-                        Timber.e(exception)
-                        LoadResult.Error(exception)
-                    }
+                    val response = getGames(page)
+                    return LoadResult.Page(
+                        data = response,
+                        prevKey = if (page == 1) null else page - 1,
+                        nextKey = if (response.isEmpty()) null else page + 1
+                    )
                 }
 
                 override fun getRefreshKey(state: PagingState<Int, Game>): Int? =

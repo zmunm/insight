@@ -9,5 +9,5 @@ interface GameService {
 
     suspend fun fetchGameDetail(
         id: Int
-    ): Game
+    ): Result<Game>
 }

@@ -9,22 +9,22 @@ plugins {
     detekt
 }
 
-val rawgKey: String = gradleLocalProperties(rootDir).getProperty(Const.RAWG_KEY)
+val rawgKey: String = gradleLocalProperties(rootDir).getProperty(RAWG_KEY)
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Version.ANDROID_COMPILE)
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "io.github.zmunm.insight"
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        minSdkVersion(Version.ANDROID_MIN)
+        targetSdkVersion(Version.ANDROID_TARGET)
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", Const.RAWG_KEY, "\"$rawgKey\"")
+        buildConfigField("String", RAWG_KEY, "\"$rawgKey\"")
     }
 
     buildFeatures {
@@ -116,6 +116,4 @@ dependencies {
     kapt(Dependency.GLIDE_APT)
 
     implementation(Dependency.TIMBER)
-
-    testImplementation(Dependency.JUNIT)
 }

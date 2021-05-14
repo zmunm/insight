@@ -7,7 +7,7 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import io.github.zmunm.insight.local.table.TableGame
 import kotlinx.coroutines.flow.Flow
-import java.util.*
+import java.util.Date
 
 @Dao
 internal interface GameDao {

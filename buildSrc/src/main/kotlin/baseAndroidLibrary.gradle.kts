@@ -6,17 +6,21 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdkVersion(Version.ANDROID_COMPILE)
 
     defaultConfig {
-        minSdkVersion(24)
-        targetSdkVersion(30)
+        minSdkVersion(Version.ANDROID_MIN)
+        targetSdkVersion(Version.ANDROID_TARGET)
     }
 
     testOptions {
         unitTests {
             all {
                 it.useJUnitPlatform()
+                it.configure<JacocoTaskExtension> {
+                    isIncludeNoLocationClasses = true
+                    excludes = listOf("jdk.internal.*")
+                }
                 it.testLogging {
                     events("passed", "skipped", "failed")
                     it.outputs.upToDateWhen {

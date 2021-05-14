@@ -2,7 +2,7 @@ package io.github.zmunm.insight.local.table
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.*
+import java.util.Date
 
 @Entity(tableName = "games")
 internal data class TableGame(

@@ -1,6 +1,7 @@
 plugins {
     baseAndroidLibrary
     `kotlin-kapt`
+    `testing-android`
     detekt
     document
 }
@@ -9,6 +10,8 @@ dependencies {
     implementation(project(":entity"))
     implementation(project(":usecase"))
     implementation(project(":repository"))
+
+    implementation(Dependency.COROUTINE)
 
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
@@ -20,7 +23,7 @@ dependencies {
     implementation(Dependency.MOSHI)
     kapt(Dependency.MOSHI_APT)
 
-    implementation(Dependency.COROUTINE)
-
     implementation(Dependency.TIMBER)
+
+    testImplementation(Dependency.MOCK_WEBSERVER)
 }

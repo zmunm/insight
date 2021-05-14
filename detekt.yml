@@ -1,6 +1,8 @@
-build:
-  maxIssues: 10
-
 naming:
   ConstructorParameterNaming:
     active: false
+  VariableNaming:
+    variablePattern : "(_)?[a-z][A-Za-z0-9]*"
+style:
+  MaxLineLength:
+    excludes: ["**/test/**"]

@@ -18,7 +18,7 @@ internal data class ResponseGameDetail(
     val game_series_count: Int,
     val genres: List<Genre>,
     val id: Int,
-    val metacritic: Int,
+    val metacritic: Int?,
     val metacritic_platforms: List<MetacriticPlatformStatus>,
     val metacritic_url: String,
     val movies_count: Int,

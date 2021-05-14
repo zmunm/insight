@@ -1,14 +1,25 @@
 package io.github.zmunm.insight.remote.impl
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.remote.api.GameApi
+import io.github.zmunm.insight.remote.dao.ResponseError
 import io.github.zmunm.insight.remote.dao.ResponseGame
 import io.github.zmunm.insight.remote.dao.ResponseGameDetail
+import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.repository.service.GameService
+import retrofit2.HttpException
+import retrofit2.Response
 
 internal class GameServiceImpl(
     private val gameApi: GameApi,
 ) : GameService {
+
+    private val errorConverter = Moshi.Builder()
+        .add(KotlinJsonAdapterFactory())
+        .build()
+        .adapter(ResponseError::class.java)
 
     override suspend fun fetchGames(
         page: Int?,
@@ -20,9 +31,7 @@ internal class GameServiceImpl(
 
     override suspend fun fetchGameDetail(
         id: Int,
-    ): Game = gameApi.fetchGameDetail(id).run {
-        body()?.toEntity() ?: error(id.toString())
-    }
+    ): Result<Game> = gameApi.fetchGameDetail(id).toResult { it.toEntity() }
 
     private fun ResponseGame.toEntity(): Game = Game(
         id = id,
@@ -35,4 +44,22 @@ internal class GameServiceImpl(
         name = name,
         backgroundImage = background_image,
     )
+
+    private fun <T, R> Response<T>.toResult(mapper: (T) -> R): Result<R> =
+        if (isSuccessful) {
+            body()?.let {
+                Result.success(mapper(it))
+            } ?: Result.failure(NullPointerException(headers().toString()))
+        } else {
+            Result.failure(
+                errorBody()?.source()
+                    ?.let(errorConverter::fromJson)
+                    ?.let {
+                        KnownThrowable(
+                            it.error,
+                            HttpException(this)
+                        )
+                    } ?: HttpException(this)
+            )
+        }
 }
