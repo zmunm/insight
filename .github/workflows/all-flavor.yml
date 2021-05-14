@@ -26,6 +26,9 @@ jobs:
             ~/.gradle/wrapper/
           key: cache-gradle-${{ hashFiles('buildSrc/src/main/kotlin/Dependency.kt') }}
 
+      - name: Set Key
+        run: echo RAWG_KEY=1 > ./local.properties
+
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
