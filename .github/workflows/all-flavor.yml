@@ -1,0 +1,43 @@
+name: all-flavor
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  all-flavor:
+    runs-on: ubuntu-latest
+    env:
+      JDK_VERSION: 11
+      GRADLE_OPTS: -Dorg.gradle.daemon=false
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Cache Gradle Folders
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.gradle/caches/
+            ~/.gradle/wrapper/
+          key: cache-gradle-${{ hashFiles('buildSrc/src/main/kotlin/Dependency.kt') }}
+
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: 'adopt'
+
+      - name: lint
+        run: ./gradlew detekt
+        
+      - name: test
+        run: ./gradlew test
+        
+      - name: build
+        run: ./gradlew bundleRelease
+        
