@@ -13,8 +13,10 @@ import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
+import io.mockk.slot
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
+import java.util.Date
 
 internal class GameDataSourceSpec : DescribeSpec({
     val gameService: GameService = mockk()
@@ -58,15 +60,16 @@ internal class GameDataSourceSpec : DescribeSpec({
     describe("getGameDetail") {
         it("has cache") {
             val id = 1
+            val timeout = slot<Long>()
             coEvery {
-                gameCache.hasGame(id)
+                gameCache.hasGame(id, capture(timeout))
             } returns true
             every {
                 gameCache.getGame(id)
             } returns flowOf(mockk())
             gameDataSource.getGameDetail(id)
             coVerify {
-                gameCache.hasGame(id)
+                gameCache.hasGame(id, capture(timeout))
                 gameCache.getGame(id)
             }
         }
