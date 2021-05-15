@@ -16,7 +16,6 @@ import io.mockk.mockk
 import io.mockk.slot
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
-import java.util.Date
 
 internal class GameDataSourceSpec : DescribeSpec({
     val gameService: GameService = mockk()
