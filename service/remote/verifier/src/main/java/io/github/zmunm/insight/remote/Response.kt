@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.remote.impl
+package io.github.zmunm.insight.remote
 
 import org.intellij.lang.annotations.Language
 

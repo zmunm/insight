@@ -25,5 +25,5 @@ dependencies {
 
     implementation(Dependency.TIMBER)
 
-    testImplementation(Dependency.MOCK_WEBSERVER)
+    testImplementation(project(":service:remote:verifier"))
 }

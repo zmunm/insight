@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.remote.impl
+package io.github.zmunm.insight.remote
 
 import okhttp3.mockwebserver.MockResponse
 

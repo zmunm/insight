@@ -5,4 +5,4 @@ naming:
     variablePattern : "(_)?[a-z][A-Za-z0-9]*"
 style:
   MaxLineLength:
-    excludes: ["**/test/**"]
+    excludes: ["**/Response.kt"]
