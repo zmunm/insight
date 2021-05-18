@@ -43,5 +43,6 @@ object Dependency {
 
     const val KOTEST = "io.kotest:kotest-runner-junit5:4.5.0"
     const val MOCKK = "io.mockk:mockk:1.11.0"
+    const val COROUTINE_TEST = "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.3"
     const val MOCK_WEBSERVER = "com.squareup.okhttp3:mockwebserver:4.9.1"
 }

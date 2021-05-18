@@ -9,6 +9,7 @@ import io.github.zmunm.insight.repository.GameRepository
 import io.github.zmunm.insight.repository.datasource.GameDataSource
 import io.github.zmunm.insight.repository.service.GameCache
 import io.github.zmunm.insight.repository.service.GameService
+import kotlinx.coroutines.Dispatchers
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -22,5 +23,6 @@ internal object RepositoryModule {
     ): GameRepository = GameDataSource(
         gameService,
         gameCache,
+        Dispatchers.IO,
     )
 }

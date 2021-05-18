@@ -24,4 +24,5 @@ tasks.register<JacocoReport>("jacocoTestReport") {
 dependencies {
     "testImplementation"(Dependency.KOTEST)
     "testImplementation"(Dependency.MOCKK)
+    "testImplementation"(Dependency.COROUTINE_TEST)
 }

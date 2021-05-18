@@ -20,4 +20,5 @@ tasks.withType<JacocoReport> {
 dependencies {
     "testImplementation"(Dependency.KOTEST)
     "testImplementation"(Dependency.MOCKK)
+    "testImplementation"(Dependency.COROUTINE_TEST)
 }

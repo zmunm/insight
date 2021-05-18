@@ -1,7 +1,6 @@
 package io.github.zmunm.insight.repository.datasource
 
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.repository.module.RepositoryModule
 import io.github.zmunm.insight.repository.service.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import io.kotest.core.spec.style.DescribeSpec
@@ -13,16 +12,18 @@ import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.just
 import io.mockk.mockk
-import io.mockk.slot
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.TestCoroutineDispatcher
 
 internal class GameDataSourceSpec : DescribeSpec({
     val gameService: GameService = mockk()
     val gameCache: GameCache = mockk()
-    val gameDataSource = RepositoryModule.provideGameRepository(
+    val testDispatcher = TestCoroutineDispatcher()
+    val gameDataSource = GameDataSource(
         gameService = gameService,
         gameCache = gameCache,
+        dispatcher = testDispatcher,
     )
 
     describe("getGames") {
@@ -59,16 +60,15 @@ internal class GameDataSourceSpec : DescribeSpec({
     describe("getGameDetail") {
         it("has cache") {
             val id = 1
-            val timeout = slot<Long>()
             coEvery {
-                gameCache.hasGame(id, capture(timeout))
+                gameCache.hasGame(id)
             } returns true
             every {
                 gameCache.getGame(id)
             } returns flowOf(mockk())
             gameDataSource.getGameDetail(id)
             coVerify {
-                gameCache.hasGame(id, capture(timeout))
+                gameCache.hasGame(id)
                 gameCache.getGame(id)
             }
         }
@@ -119,5 +119,9 @@ internal class GameDataSourceSpec : DescribeSpec({
             gameService,
             gameCache,
         )
+    }
+
+    afterSpec {
+        testDispatcher.cleanupTestCoroutines()
     }
 })
