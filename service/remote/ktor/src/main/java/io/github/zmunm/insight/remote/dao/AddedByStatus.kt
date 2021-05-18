@@ -4,10 +4,10 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 internal data class AddedByStatus(
-    val beaten: Int,
-    val dropped: Int,
-    val owned: Int,
-    val playing: Int,
-    val toplay: Int,
-    val yet: Int
+    val beaten: Int? = null,
+    val dropped: Int? = null,
+    val owned: Int? = null,
+    val playing: Int? = null,
+    val toplay: Int? = null,
+    val yet: Int? = null,
 )

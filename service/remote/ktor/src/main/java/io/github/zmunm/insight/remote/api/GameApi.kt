@@ -1,55 +1,99 @@
 package io.github.zmunm.insight.remote.api
 
+import io.github.zmunm.insight.remote.dao.ResponseError
 import io.github.zmunm.insight.remote.dao.ResponseGame
 import io.github.zmunm.insight.remote.dao.ResponseGameDetail
 import io.github.zmunm.insight.remote.dao.ResponseList
+import io.github.zmunm.insight.repository.KnownThrowable
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.features.ClientRequestException
+import io.ktor.client.features.json.JsonFeature
+import io.ktor.client.features.json.serializer.KotlinxSerializer
+import io.ktor.client.features.observer.ResponseObserver
 import io.ktor.client.request.request
+import io.ktor.client.statement.readText
 import io.ktor.http.HttpMethod
+import io.ktor.utils.io.readUTF8Line
+import kotlinx.serialization.decodeFromString
+import kotlinx.serialization.json.Json
 import timber.log.Timber
 
 internal class GameApi(
+    private val url: String,
     apiKey: String,
-    private val client: HttpClient,
 ) {
     private val keyPostFix = "&key=$apiKey"
 
-    suspend fun fetchGames(page: Int?): ResponseList<ResponseGame> =
-        client.request<ResponseList<ResponseGame>>(
-            buildUrl("games", mapOf("page" to page))
-        ) {
-            Timber.d(url.buildString())
-            method = HttpMethod.Get
-        }.log()
+    private val jsonOption =
+        Json {
+            isLenient = false
+            ignoreUnknownKeys = true
+            allowSpecialFloatingPointValues = true
+            useArrayPolymorphism = false
+        }
 
-    suspend fun fetchGameDetail(id: Int): ResponseGameDetail =
-        client.request<ResponseGameDetail>(
-            buildUrl("games/$id")
-        ) {
-            method = HttpMethod.Get
-        }.log()
+    private val client =
+        HttpClient(CIO) {
+            install(JsonFeature) {
+                serializer = KotlinxSerializer(jsonOption)
+            }
+
+            install(ResponseObserver) {
+                onResponse { response ->
+                    Timber.d("HTTP status: ${response.status.value}")
+                    Timber.d(response.content.readUTF8Line())
+                }
+            }
+        }
+
+    suspend fun fetchGames(page: Int?): Result<ResponseList<ResponseGame>> =
+        buildRequest {
+            client.request(
+                buildUrl("games", mapOf("page" to page))
+            ) {
+                Timber.d(url.buildString())
+                method = HttpMethod.Get
+            }
+        }
+
+    suspend fun fetchGameDetail(id: Int): Result<ResponseGameDetail> =
+        buildRequest {
+            client.request(
+                buildUrl("games/$id")
+            ) {
+                Timber.d(url.buildString())
+                method = HttpMethod.Get
+            }
+        }
 
     private fun buildUrl(
         endpoint: String,
         query: Map<String, Any?> = emptyMap(),
-    ): String {
-        val builder = StringBuilder("$BASE_URL$endpoint?")
-        builder.append(
-            query.entries.joinToString(
-                separator = "&",
-                postfix = keyPostFix
-            ) { (key, value) ->
-                "$key=$value"
-            }
-        )
-        return builder.toString()
-    }
+    ): String =
+        buildString {
+            append("$url$endpoint?")
+            append(
+                query.entries.joinToString(
+                    separator = "&",
+                    postfix = keyPostFix
+                ) { (key, value) ->
+                    "$key=$value"
+                }
+            )
+        }
 
-    private fun <T> T.log() = apply {
-        Timber.d(this.toString())
-    }
-
-    companion object {
-        private const val BASE_URL = "https://api.rawg.io/api/"
-    }
+    private suspend fun <T> buildRequest(action: suspend () -> T): Result<T> =
+        try {
+            Result.success(action())
+        } catch (exception: ClientRequestException) {
+            Result.failure(
+                KnownThrowable(
+                    jsonOption.decodeFromString<ResponseError>(
+                        exception.response.readText()
+                    ).error,
+                    exception
+                )
+            )
+        }
 }

@@ -12,6 +12,8 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
+    implementation(Dependency.COROUTINE)
+
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
 
@@ -19,7 +21,7 @@ dependencies {
     implementation(Dependency.KTOR_CIO)
     implementation(Dependency.KTOR_SERIALIZATION)
 
-    implementation(Dependency.COROUTINE)
-
     implementation(Dependency.TIMBER)
+
+    testImplementation(project(":service:remote:verifier"))
 }

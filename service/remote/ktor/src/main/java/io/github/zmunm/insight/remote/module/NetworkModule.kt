@@ -8,17 +8,13 @@ import io.github.zmunm.insight.Const
 import io.github.zmunm.insight.remote.api.GameApi
 import io.github.zmunm.insight.remote.impl.GameServiceImpl
 import io.github.zmunm.insight.repository.service.GameService
-import io.ktor.client.HttpClient
-import io.ktor.client.engine.cio.CIO
-import io.ktor.client.features.json.JsonFeature
-import io.ktor.client.features.json.serializer.KotlinxSerializer
-import kotlinx.serialization.json.Json
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
+    private const val BASE_URL = "https://api.rawg.io/api/"
     @Provides
     @Singleton
     fun provideGameService(
@@ -26,19 +22,8 @@ internal object NetworkModule {
         apiKey: String,
     ): GameService = GameServiceImpl(
         GameApi(
+            BASE_URL,
             apiKey,
-            HttpClient(CIO) {
-                install(JsonFeature) {
-                    serializer = KotlinxSerializer(
-                        Json {
-                            isLenient = false
-                            ignoreUnknownKeys = true
-                            allowSpecialFloatingPointValues = true
-                            useArrayPolymorphism = false
-                        }
-                    )
-                }
-            }
         )
     )
 }

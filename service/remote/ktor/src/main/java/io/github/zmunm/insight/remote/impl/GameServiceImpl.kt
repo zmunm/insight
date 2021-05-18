@@ -10,12 +10,12 @@ internal class GameServiceImpl(
     private val gameApi: GameApi,
 ) : GameService {
     override suspend fun fetchGames(page: Int?): List<Game> =
-        gameApi.fetchGames(page).results.map { response ->
+        gameApi.fetchGames(page).getOrNull()?.results?.map { response ->
             response.toEntity()
-        }
+        } ?: emptyList()
 
     override suspend fun fetchGameDetail(id: Int): Result<Game> =
-        Result.success(gameApi.fetchGameDetail(id).toEntity())
+        gameApi.fetchGameDetail(id).map { it.toEntity() }
 
     private fun ResponseGame.toEntity(): Game = Game(
         id = id,
