@@ -16,6 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 internal object NetworkModule {
     private const val BASE_URL = "https://api.rawg.io/api/"
+
     @Provides
     @Singleton
     fun provideGameService(

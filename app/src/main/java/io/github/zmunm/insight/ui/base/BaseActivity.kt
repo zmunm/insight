@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 
 abstract class BaseActivity<T : ViewDataBinding> : AppCompatActivity() {
 
+    @Suppress("LateinitUsage")
     protected lateinit var binding: T
 
     protected abstract val layoutId: Int

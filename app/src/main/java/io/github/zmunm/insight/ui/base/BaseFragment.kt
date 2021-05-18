@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 
 abstract class BaseFragment<T : ViewDataBinding> : Fragment() {
 
+    @Suppress("LateinitUsage")
     protected lateinit var binding: T
 
     protected abstract val layoutId: Int
