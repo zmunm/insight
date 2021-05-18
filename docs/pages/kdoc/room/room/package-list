@@ -1,9 +1,0 @@
-$dokka.format:jekyll-v1
-$dokka.linkExtension:md
-$dokka.location:io.github.zmunm.insight.local.converter////PointingToDeclaration/room/io.github.zmunm.insight.local.converter/index.md
-$dokka.location:io.github.zmunm.insight.local.converter/DateConverter///PointingToDeclaration/room/io.github.zmunm.insight.local.converter/-date-converter/index.md
-$dokka.location:io.github.zmunm.insight.local.converter/DateConverter/DateConverter/#/PointingToDeclaration/room/io.github.zmunm.insight.local.converter/-date-converter/-date-converter.md
-$dokka.location:io.github.zmunm.insight.local.converter/DateConverter/dateToTimestamp/#java.util.Date?/PointingToDeclaration/room/io.github.zmunm.insight.local.converter/-date-converter/date-to-timestamp.md
-$dokka.location:io.github.zmunm.insight.local.converter/DateConverter/fromTimestamp/#kotlin.Long?/PointingToDeclaration/room/io.github.zmunm.insight.local.converter/-date-converter/from-timestamp.md
-io.github.zmunm.insight.local.converter
-

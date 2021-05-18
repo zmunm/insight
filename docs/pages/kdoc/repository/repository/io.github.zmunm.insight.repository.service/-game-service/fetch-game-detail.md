@@ -8,7 +8,7 @@ title: fetchGameDetail -
 # fetchGameDetail  
 [androidJvm]  
 Content  
-abstract suspend fun [fetchGameDetail](fetch-game-detail.md)(id: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): Game  
+abstract suspend fun [fetchGameDetail](fetch-game-detail.md)(id: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)): [Result](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-result/index.html)<Game>  
 
 
 

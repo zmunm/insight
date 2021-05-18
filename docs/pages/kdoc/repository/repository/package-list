@@ -12,5 +12,9 @@ $dokka.location:io.github.zmunm.insight.repository.service/GameCache/putGame/#io
 $dokka.location:io.github.zmunm.insight.repository.service/GameService///PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/index.md
 $dokka.location:io.github.zmunm.insight.repository.service/GameService/fetchGameDetail/#kotlin.Int/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/fetch-game-detail.md
 $dokka.location:io.github.zmunm.insight.repository.service/GameService/fetchGames/#kotlin.Int?/PointingToDeclaration/repository/io.github.zmunm.insight.repository.service/-game-service/fetch-games.md
+$dokka.location:io.github.zmunm.insight.repository////PointingToDeclaration/repository/io.github.zmunm.insight.repository/index.md
+$dokka.location:io.github.zmunm.insight.repository/KnownThrowable///PointingToDeclaration/repository/io.github.zmunm.insight.repository/-known-throwable/index.md
+$dokka.location:io.github.zmunm.insight.repository/KnownThrowable/KnownThrowable/#kotlin.String#kotlin.Throwable/PointingToDeclaration/repository/io.github.zmunm.insight.repository/-known-throwable/-known-throwable.md
+io.github.zmunm.insight.repository
 io.github.zmunm.insight.repository.service
 

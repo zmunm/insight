@@ -1,0 +1,7 @@
+$dokka.format:jekyll-v1
+$dokka.linkExtension:md
+$dokka.location:io.github.zmunm.insight.remote////PointingToDeclaration/verifier/io.github.zmunm.insight.remote/index.md
+$dokka.location:io.github.zmunm.insight.remote/GameServiceSpec///PointingToDeclaration/verifier/io.github.zmunm.insight.remote/-game-service-spec/index.md
+$dokka.location:io.github.zmunm.insight.remote/GameServiceSpec/GameServiceSpec/#kotlin.Function1[kotlin.String,io.github.zmunm.insight.repository.service.GameService]/PointingToDeclaration/verifier/io.github.zmunm.insight.remote/-game-service-spec/-game-service-spec.md
+io.github.zmunm.insight.remote
+

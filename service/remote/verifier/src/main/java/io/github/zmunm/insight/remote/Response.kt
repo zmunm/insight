@@ -3,7 +3,7 @@ package io.github.zmunm.insight.remote
 import org.intellij.lang.annotations.Language
 
 @Language("json")
-val gameListResponse = """
+internal val gameListResponse = """
 {
     "count": 550423,
     "next": "https://api.rawg.io/api/games?key=d4377600d5454d1d80a3e2b004c4f69c&page=2",
@@ -9436,7 +9436,7 @@ val gameListResponse = """
 """.trimIndent()
 
 @Language("json")
-val gameDetailResponse = """
+internal val gameDetailResponse = """
 {
     "id": 1,
     "slug": "dgeneration-hd",
@@ -9755,7 +9755,7 @@ val gameDetailResponse = """
 """.trimIndent()
 
 @Language("json")
-val errorResponse = """
+internal val errorResponse = """
 {
     "error": "The key parameter is not provided"
 }
