@@ -18,10 +18,10 @@ RAWG_KEY={YOUR_KEY}
 
 The flavors that can be combined are as follows.
 
-1. local
+1. cache
     - room
     - realm 
-2. remote
+2. service
     - retrofit
     - ktor
     - volley
