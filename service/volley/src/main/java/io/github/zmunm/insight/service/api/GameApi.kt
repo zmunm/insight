@@ -6,11 +6,11 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
+import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
 import io.github.zmunm.insight.service.dao.ResponseList
-import io.github.zmunm.insight.repository.KnownThrowable
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 

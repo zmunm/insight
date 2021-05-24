@@ -3,12 +3,12 @@ package io.github.zmunm.insight.service.impl
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.github.zmunm.insight.entity.Game
+import io.github.zmunm.insight.repository.KnownThrowable
+import io.github.zmunm.insight.repository.service.GameService
 import io.github.zmunm.insight.service.api.GameApi
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
-import io.github.zmunm.insight.repository.KnownThrowable
-import io.github.zmunm.insight.repository.service.GameService
 import retrofit2.HttpException
 import retrofit2.Response
 

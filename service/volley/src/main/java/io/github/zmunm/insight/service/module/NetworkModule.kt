@@ -8,9 +8,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.Const
+import io.github.zmunm.insight.repository.service.GameService
 import io.github.zmunm.insight.service.api.GameApi
 import io.github.zmunm.insight.service.impl.GameServiceImpl
-import io.github.zmunm.insight.repository.service.GameService
 import javax.inject.Named
 import javax.inject.Singleton
 

@@ -1,8 +1,8 @@
 package io.github.zmunm.insight.cache.impl
 
-import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.cache.dao.GameDao
 import io.github.zmunm.insight.cache.table.TableGame
+import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.service.GameCache
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterNotNull

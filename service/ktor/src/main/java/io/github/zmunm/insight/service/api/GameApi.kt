@@ -1,10 +1,10 @@
 package io.github.zmunm.insight.service.api
 
+import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
 import io.github.zmunm.insight.service.dao.ResponseList
-import io.github.zmunm.insight.repository.KnownThrowable
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.features.ClientRequestException
