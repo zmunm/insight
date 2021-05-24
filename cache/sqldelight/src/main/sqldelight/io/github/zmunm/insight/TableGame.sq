@@ -1,0 +1,33 @@
+import java.util.Date;
+
+CREATE TABLE tableGame (
+    id INTEGER NOT NULL,
+    name TEXT NOT NULL,
+    backgroundImage TEXT NOT NULL,
+    addedAt INTEGER AS Date NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM tableGame;
+
+selectGame:
+SELECT *
+FROM tableGame
+WHERE id = ?;
+
+hasGame:
+SELECT EXISTS(
+    SELECT 1 FROM tableGame WHERE id = ? AND ? - addedAt < ? LIMIT 1
+);
+
+insertGame:
+INSERT INTO tableGame(id, name, backgroundImage, addedAt)
+VALUES (?, ?, ?, ?);
+
+insertFullGame:
+INSERT INTO tableGame(id, name, backgroundImage, addedAt)
+VALUES ?;
+
+deleteGame:
+DELETE FROM tableGame WHERE id = ?;

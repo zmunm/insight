@@ -57,7 +57,7 @@ internal class GameApi(
             }
         }
 
-    suspend fun fetchGameDetail(id: Int): Result<ResponseGameDetail> =
+    suspend fun fetchGameDetail(id: Long): Result<ResponseGameDetail> =
         buildRequest {
             client.request(
                 buildUrl("games/$id")

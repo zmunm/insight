@@ -17,7 +17,7 @@ internal data class ResponseGameDetail(
     val esrb_rating: EsrbRating?,
     val game_series_count: Int,
     val genres: List<Genre>,
-    val id: Int,
+    val id: Long,
     val metacritic: Int?,
     val metacritic_platforms: List<MetacriticPlatformStatus>,
     val metacritic_url: String,

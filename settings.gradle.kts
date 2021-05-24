@@ -12,5 +12,6 @@ include(
 
     ":cache:verifier",
     ":cache:room",
-    ":cache:realm"
+    ":cache:realm",
+    ":cache:sqldelight"
 )

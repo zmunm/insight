@@ -14,10 +14,10 @@ dependencies {
 
     implementation(Dependency.ANDROID_STARTUP)
 
+    implementation(Dependency.COROUTINE)
+
     implementation(Dependency.HILT)
     kapt(Dependency.HILT_APT)
-
-    implementation(Dependency.COROUTINE)
 
     implementation(Dependency.TIMBER)
 }

@@ -21,6 +21,7 @@ sealed class Dimension(
     ) {
         object Room : Cache("room")
         object Realm : Cache("realm")
+        object SqlDelight : Cache("sqldelight")
 
         companion object {
             const val NAME = "cache"

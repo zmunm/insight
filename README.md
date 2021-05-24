@@ -20,7 +20,8 @@ The flavors that can be combined are as follows.
 
 1. cache
     - room
-    - realm 
+    - realm
+    - SQLDelight
 2. service
     - retrofit
     - ktor

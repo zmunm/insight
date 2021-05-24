@@ -42,6 +42,7 @@ android {
         Dimension.Service.Ktor { create(flavor) { dimension(type) } }
         Dimension.Cache.Room { create(flavor) { dimension(type) } }
         Dimension.Cache.Realm { create(flavor) { dimension(type) } }
+        Dimension.Cache.SqlDelight { create(flavor) { dimension(type) } }
     }
 
     buildTypes {
@@ -85,6 +86,7 @@ dependencies {
     Dimension.Service.Ktor { implement(project(":$type:$flavor")) }
     Dimension.Cache.Room { implement(project(":$type:$flavor")) }
     Dimension.Cache.Realm { implement(project(":$type:$flavor")) }
+    Dimension.Cache.SqlDelight { implement(project(":$type:$flavor")) }
 
     implementation(Dependency.ANDROID_STARTUP)
     implementation(Dependency.ANDROID_KTX)

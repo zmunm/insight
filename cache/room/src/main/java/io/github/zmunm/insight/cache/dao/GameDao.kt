@@ -15,7 +15,7 @@ internal interface GameDao {
     fun getGames(): Flow<List<TableGame>>
 
     @Query("SELECT * FROM games WHERE id = :id")
-    fun getGame(id: Int): Flow<TableGame>
+    fun getGame(id: Long): Flow<TableGame>
 
     @Query(
         """
@@ -24,7 +24,7 @@ internal interface GameDao {
         )
         """
     )
-    suspend fun hasGame(id: Int, timeout: Long, now: Date = Date()): Boolean
+    suspend fun hasGame(id: Long, timeout: Long, now: Date = Date()): Boolean
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun putGame(game: TableGame)

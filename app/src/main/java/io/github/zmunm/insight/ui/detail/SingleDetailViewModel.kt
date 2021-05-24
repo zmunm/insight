@@ -18,11 +18,11 @@ class SingleDetailViewModel @Inject constructor(
 ) : ViewModel() {
     val gameDetail: LiveData<Game> =
         getGameDetail(
-            savedStateHandle.get<Int>(Params.GAME_ID) ?: error(Params.GAME_ID)
+            savedStateHandle.get<Long>(Params.GAME_ID) ?: error(Params.GAME_ID)
         ).asLiveData()
 
     init {
-        val id = savedStateHandle.get<Int>(Params.GAME_ID)
+        val id = savedStateHandle.get<Long>(Params.GAME_ID)
         Timber.i(id.toString())
     }
 }

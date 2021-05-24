@@ -8,5 +8,5 @@ import javax.inject.Inject
 class GetGameDetail @Inject constructor(
     private val gameRepository: GameRepository
 ) {
-    operator fun invoke(id: Int): Flow<Game> = gameRepository.getGameDetail(id)
+    operator fun invoke(id: Long): Flow<Game> = gameRepository.getGameDetail(id)
 }

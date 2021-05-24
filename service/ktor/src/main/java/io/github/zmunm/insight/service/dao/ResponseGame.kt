@@ -11,7 +11,7 @@ internal data class ResponseGame(
     val dominant_color: String,
     val esrb_rating: EsrbRating?,
     val genres: List<Genre>,
-    val id: Int,
+    val id: Long,
     val metacritic: Int?,
     val name: String,
     val parent_platforms: List<ParentPlatformStatus>,

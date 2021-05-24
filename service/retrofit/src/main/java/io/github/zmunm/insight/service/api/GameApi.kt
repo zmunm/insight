@@ -16,7 +16,7 @@ internal interface GameApi {
 
     @GET("games/{$ID}")
     suspend fun fetchGameDetail(
-        @Path(ID) id: Int,
+        @Path(ID) id: Long,
     ): Response<ResponseGameDetail>
 
     companion object {

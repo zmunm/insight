@@ -59,7 +59,7 @@ internal class GameDataSourceSpec : DescribeSpec({
 
     describe("getGameDetail") {
         it("has cache") {
-            val id = 1
+            val id = 1L
             coEvery {
                 gameCache.hasGame(id)
             } returns true

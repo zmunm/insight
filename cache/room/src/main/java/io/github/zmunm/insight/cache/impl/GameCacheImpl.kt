@@ -19,7 +19,7 @@ internal class GameCacheImpl(
             }
         }
 
-    override fun getGame(id: Int): Flow<Game> = gameDao.getGame(id)
+    override fun getGame(id: Long): Flow<Game> = gameDao.getGame(id)
         .filterNotNull().map {
             it.toEntity()
         }
@@ -29,7 +29,7 @@ internal class GameCacheImpl(
     }
 
     override suspend fun hasGame(
-        id: Int,
+        id: Long,
         timeout: Long,
     ): Boolean = gameDao.hasGame(id, timeout)
 

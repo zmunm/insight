@@ -30,7 +30,7 @@ internal class GameServiceImpl(
     }
 
     override suspend fun fetchGameDetail(
-        id: Int,
+        id: Long,
     ): Result<Game> = gameApi.fetchGameDetail(id).toResult { it.toEntity() }
 
     private fun ResponseGame.toEntity(): Game = Game(

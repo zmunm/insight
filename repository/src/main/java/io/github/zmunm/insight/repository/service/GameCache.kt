@@ -7,12 +7,12 @@ import java.util.concurrent.TimeUnit
 interface GameCache {
     fun getGames(): Flow<List<Game>>
 
-    fun getGame(id: Int): Flow<Game>
+    fun getGame(id: Long): Flow<Game>
 
     suspend fun putGame(game: Game)
 
     suspend fun hasGame(
-        id: Int,
+        id: Long,
         timeout: Long = FRESH_TIMEOUT,
     ): Boolean
 

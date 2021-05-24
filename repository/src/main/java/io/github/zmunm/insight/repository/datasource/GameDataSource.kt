@@ -21,7 +21,7 @@ internal class GameDataSource(
 
     override fun getRecentGames(): Flow<List<Game>> = gameCache.getGames()
 
-    override fun getGameDetail(id: Int): Flow<Game> {
+    override fun getGameDetail(id: Long): Flow<Game> {
         CoroutineScope(dispatcher).launch {
             if (!gameCache.hasGame(id)) {
                 refreshGameDetail(id)
@@ -35,7 +35,7 @@ internal class GameDataSource(
     }
 
     @SuppressLint("TimberExceptionLogging")
-    private suspend fun refreshGameDetail(id: Int) {
+    private suspend fun refreshGameDetail(id: Long) {
         gameService.fetchGameDetail(id)
             .onSuccess {
                 gameCache.putGame(it)

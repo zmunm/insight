@@ -58,7 +58,7 @@ internal class GameApi(
     }
 
     suspend fun fetchGameDetail(
-        id: Int,
+        id: Long,
     ): Result<ResponseGameDetail> = suspendCoroutine { cont ->
         requestQueue.add(
             StringRequest(

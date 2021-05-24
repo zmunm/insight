@@ -8,6 +8,6 @@ interface GameService {
     ): List<Game>
 
     suspend fun fetchGameDetail(
-        id: Int
+        id: Long
     ): Result<Game>
 }

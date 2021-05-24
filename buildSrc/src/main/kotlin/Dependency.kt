@@ -26,6 +26,9 @@ object Dependency {
     const val ROOM_KTX = "androidx.room:room-ktx:2.3.0"
     const val ROOM_COMPILER = "androidx.room:room-compiler:2.3.0"
 
+    const val SQLDELIGHT_ANDROID = "com.squareup.sqldelight:android-driver:1.5.0"
+    const val SQLDELIGHT_COROUTINE = "com.squareup.sqldelight:coroutines-extensions-jvm:1.5.0"
+
     // only presentation
     const val ANDROID_STARTUP = "androidx.startup:startup-runtime:1.0.0"
     const val ANDROID_KTX = "androidx.core:core-ktx:1.5.0"
@@ -52,4 +55,6 @@ object Dependency {
     const val MOCK_WEBSERVER = "com.squareup.okhttp3:mockwebserver:4.9.1"
     const val ANDROID_TEST = "androidx.test:core:1.3.0"
     const val ROBOLECTRIC = "org.robolectric:robolectric:4.5.1"
+
+    const val SQLDELIGHT_SQLITE = "com.squareup.sqldelight:sqlite-driver:1.5.0"
 }

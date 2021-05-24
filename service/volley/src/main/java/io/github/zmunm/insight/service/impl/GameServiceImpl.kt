@@ -17,7 +17,7 @@ internal class GameServiceImpl(
     } ?: emptyList()
 
     override suspend fun fetchGameDetail(
-        id: Int,
+        id: Long,
     ): Result<Game> = gameApi.fetchGameDetail(id).map { it.toEntity() }
 
     private fun ResponseGame.toEntity(): Game = Game(

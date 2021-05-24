@@ -16,7 +16,7 @@ internal class GameDao {
             .toFlow()
     }
 
-    fun getGame(id: Int): Flow<TableGame> = instantRealmTransaction { realm ->
+    fun getGame(id: Long): Flow<TableGame> = instantRealmTransaction { realm ->
         val findItem = realm.where(TableGame::class.java)
             .equalTo("id", id)
             .findFirst()
@@ -31,7 +31,7 @@ internal class GameDao {
             }
     }
 
-    suspend fun hasGame(id: Int, timeout: Long): Boolean =
+    suspend fun hasGame(id: Long, timeout: Long): Boolean =
         withContext(Dispatchers.IO) {
             instantRealm {
                 it.where(TableGame::class.java)

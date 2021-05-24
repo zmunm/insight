@@ -6,7 +6,7 @@ import java.util.Date
 
 @Entity(tableName = "games")
 internal data class TableGame(
-    @PrimaryKey val id: Int,
+    @PrimaryKey val id: Long,
     val name: String,
     val backgroundImage: String,
     val addedAt: Date = Date(),
