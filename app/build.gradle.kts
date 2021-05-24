@@ -32,16 +32,16 @@ android {
     }
 
     flavorDimensions(
-        Dimension.Remote.NAME,
-        Dimension.Local.NAME
+        Dimension.Service.NAME,
+        Dimension.Cache.NAME
     )
 
     productFlavors {
-        Dimension.Remote.Retrofit { create(flavor) { dimension(type) } }
-        Dimension.Remote.Volley { create(flavor) { dimension(type) } }
-        Dimension.Remote.Ktor { create(flavor) { dimension(type) } }
-        Dimension.Local.Room { create(flavor) { dimension(type) } }
-        Dimension.Local.Realm { create(flavor) { dimension(type) } }
+        Dimension.Service.Retrofit { create(flavor) { dimension(type) } }
+        Dimension.Service.Volley { create(flavor) { dimension(type) } }
+        Dimension.Service.Ktor { create(flavor) { dimension(type) } }
+        Dimension.Cache.Room { create(flavor) { dimension(type) } }
+        Dimension.Cache.Realm { create(flavor) { dimension(type) } }
     }
 
     buildTypes {
@@ -80,11 +80,11 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
-    Dimension.Remote.Retrofit { implement(project(":service:$type:$flavor")) }
-    Dimension.Remote.Volley { implement(project(":service:$type:$flavor")) }
-    Dimension.Remote.Ktor { implement(project(":service:$type:$flavor")) }
-    Dimension.Local.Room { implement(project(":service:$type:$flavor")) }
-    Dimension.Local.Realm { implement(project(":service:$type:$flavor")) }
+    Dimension.Service.Retrofit { implement(project(":$type:$flavor")) }
+    Dimension.Service.Volley { implement(project(":$type:$flavor")) }
+    Dimension.Service.Ktor { implement(project(":$type:$flavor")) }
+    Dimension.Cache.Room { implement(project(":$type:$flavor")) }
+    Dimension.Cache.Realm { implement(project(":$type:$flavor")) }
 
     implementation(Dependency.ANDROID_STARTUP)
     implementation(Dependency.ANDROID_KTX)

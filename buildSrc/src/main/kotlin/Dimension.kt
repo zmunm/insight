@@ -2,28 +2,28 @@ sealed class Dimension(
     val type: String,
     val flavor: String
 ) {
-    sealed class Remote(flavor: String) : Dimension(
+    sealed class Service(flavor: String) : Dimension(
         NAME,
         flavor
     ) {
-        object Retrofit : Remote("retrofit")
-        object Volley : Remote("volley")
-        object Ktor : Remote("ktor")
+        object Retrofit : Service("retrofit")
+        object Volley : Service("volley")
+        object Ktor : Service("ktor")
 
         companion object {
-            const val NAME = "remote"
+            const val NAME = "service"
         }
     }
 
-    sealed class Local(flavor: String) : Dimension(
+    sealed class Cache(flavor: String) : Dimension(
         NAME,
         flavor
     ) {
-        object Room : Local("room")
-        object Realm : Local("realm")
+        object Room : Cache("room")
+        object Realm : Cache("realm")
 
         companion object {
-            const val NAME = "local"
+            const val NAME = "cache"
         }
     }
 

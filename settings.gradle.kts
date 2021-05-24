@@ -5,12 +5,12 @@ include(
     ":usecase",
     ":repository",
 
-    ":service:remote:verifier",
-    ":service:remote:retrofit",
-    ":service:remote:volley",
-    ":service:remote:ktor",
+    ":service:verifier",
+    ":service:retrofit",
+    ":service:volley",
+    ":service:ktor",
 
-    ":service:local:verifier",
-    ":service:local:room",
-    ":service:local:realm"
+    ":cache:verifier",
+    ":cache:room",
+    ":cache:realm"
 )
