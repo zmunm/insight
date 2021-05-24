@@ -7,6 +7,7 @@ include(
 
     ":service:remote:verifier",
     ":service:remote:retrofit",
+    ":service:remote:volley",
     ":service:remote:ktor",
 
     ":service:local:verifier",

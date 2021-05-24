@@ -38,6 +38,7 @@ android {
 
     productFlavors {
         Dimension.Remote.Retrofit { create(flavor) { dimension(type) } }
+        Dimension.Remote.Volley { create(flavor) { dimension(type) } }
         Dimension.Remote.Ktor { create(flavor) { dimension(type) } }
         Dimension.Local.Room { create(flavor) { dimension(type) } }
         Dimension.Local.Realm { create(flavor) { dimension(type) } }
@@ -79,18 +80,11 @@ dependencies {
     implementation(project(":usecase"))
     implementation(project(":repository"))
 
-    Dimension.Remote.Retrofit {
-        implement(project(":service:$type:$flavor"))
-    }
-    Dimension.Remote.Ktor {
-        implement(project(":service:$type:$flavor"))
-    }
-    Dimension.Local.Room {
-        implement(project(":service:$type:$flavor"))
-    }
-    Dimension.Local.Realm {
-        implement(project(":service:$type:$flavor"))
-    }
+    Dimension.Remote.Retrofit { implement(project(":service:$type:$flavor")) }
+    Dimension.Remote.Volley { implement(project(":service:$type:$flavor")) }
+    Dimension.Remote.Ktor { implement(project(":service:$type:$flavor")) }
+    Dimension.Local.Room { implement(project(":service:$type:$flavor")) }
+    Dimension.Local.Realm { implement(project(":service:$type:$flavor")) }
 
     implementation(Dependency.ANDROID_STARTUP)
     implementation(Dependency.ANDROID_KTX)

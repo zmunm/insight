@@ -7,6 +7,7 @@ sealed class Dimension(
         flavor
     ) {
         object Retrofit : Remote("retrofit")
+        object Volley : Remote("volley")
         object Ktor : Remote("ktor")
 
         companion object {

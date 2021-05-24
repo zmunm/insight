@@ -24,6 +24,7 @@ The flavors that can be combined are as follows.
 2. remote
     - retrofit
     - ktor
+    - volley
 
 You can combine it like this.
 ```shell
