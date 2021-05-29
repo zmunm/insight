@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import io.github.zmunm.insight.cache.dao.GameDao
-import io.github.zmunm.insight.cache.impl.GameCacheImpl
+import io.github.zmunm.insight.cache.dao.GameRealmDao
+import io.github.zmunm.insight.cache.impl.GameRealmCache
 import io.github.zmunm.insight.repository.service.GameCache
 import javax.inject.Singleton
 
@@ -14,7 +14,7 @@ import javax.inject.Singleton
 internal object DatabaseModule {
     @Provides
     @Singleton
-    fun provideGameService(): GameCache = GameCacheImpl(
-        GameDao()
+    fun provideGameService(): GameCache = GameRealmCache(
+        GameRealmDao()
     )
 }

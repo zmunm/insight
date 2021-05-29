@@ -14,7 +14,7 @@ import io.github.zmunm.insight.service.dao.ResponseList
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
-internal class GameApi(
+internal class GameVolleyApi(
     private val requestQueue: RequestQueue,
     private val url: String,
     apiKey: String,

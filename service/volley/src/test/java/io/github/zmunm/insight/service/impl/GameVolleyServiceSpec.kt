@@ -1,7 +1,7 @@
 package io.github.zmunm.insight.service.impl
 
 /* TODO
-class GameServiceImplSpec : GameServiceSpec({ url ->
+class GameVolleyServiceSpec : GameServiceSpec({ url ->
     fun newRequestQueueForTest(context: Context): RequestQueue {
         val cacheDir = File(context.cacheDir, "volley")
         val network: Network = BasicNetwork(object : BaseHttpStack() {

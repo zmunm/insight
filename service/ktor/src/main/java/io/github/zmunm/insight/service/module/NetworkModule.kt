@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.Const
 import io.github.zmunm.insight.repository.service.GameService
-import io.github.zmunm.insight.service.api.GameApi
-import io.github.zmunm.insight.service.impl.GameServiceImpl
+import io.github.zmunm.insight.service.api.GameKtorApi
+import io.github.zmunm.insight.service.impl.GameKtorService
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -21,8 +21,8 @@ internal object NetworkModule {
     fun provideGameService(
         @Named(Const.API_KEY)
         apiKey: String,
-    ): GameService = GameServiceImpl(
-        GameApi(
+    ): GameService = GameKtorService(
+        GameKtorApi(
             BASE_URL,
             apiKey,
         )

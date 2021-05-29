@@ -2,12 +2,12 @@ package io.github.zmunm.insight.service.impl
 
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.service.GameService
-import io.github.zmunm.insight.service.api.GameApi
+import io.github.zmunm.insight.service.api.GameKtorApi
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
 
-internal class GameServiceImpl(
-    private val gameApi: GameApi,
+internal class GameKtorService(
+    private val gameApi: GameKtorApi,
 ) : GameService {
     override suspend fun fetchGames(page: Int?): List<Game> =
         gameApi.fetchGames(page).getOrNull()?.results?.map { response ->

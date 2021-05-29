@@ -5,15 +5,15 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.repository.service.GameService
-import io.github.zmunm.insight.service.api.GameApi
+import io.github.zmunm.insight.service.api.GameRetrofitApi
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
 import retrofit2.HttpException
 import retrofit2.Response
 
-internal class GameServiceImpl(
-    private val gameApi: GameApi,
+internal class GameRetrofitService(
+    private val gameApi: GameRetrofitApi,
 ) : GameService {
 
     private val errorConverter = Moshi.Builder()

@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import java.util.Date
 
-internal class GameCacheImpl(
+internal class GameDelightCache(
     driver: SqlDriver,
 ) : GameCache {
     private val tableGameQueries = DelightDatabase(

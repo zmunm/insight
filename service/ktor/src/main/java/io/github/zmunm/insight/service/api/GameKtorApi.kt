@@ -19,7 +19,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 import timber.log.Timber
 
-internal class GameApi(
+internal class GameKtorApi(
     private val url: String,
     apiKey: String,
 ) {

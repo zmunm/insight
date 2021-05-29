@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import java.util.Date
 
 @Dao
-internal interface GameDao {
+internal interface GameRoomDao {
     @Query("SELECT * FROM games ORDER BY name")
     fun getGames(): Flow<List<TableGame>>
 

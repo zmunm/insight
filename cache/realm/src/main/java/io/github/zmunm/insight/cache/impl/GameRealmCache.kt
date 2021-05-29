@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.cache.impl
 
-import io.github.zmunm.insight.cache.dao.GameDao
+import io.github.zmunm.insight.cache.dao.GameRealmDao
 import io.github.zmunm.insight.cache.table.TableGame
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.service.GameCache
@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 
-internal class GameCacheImpl(
-    private val gameDao: GameDao,
+internal class GameRealmCache(
+    private val gameDao: GameRealmDao,
 ) : GameCache {
 
     override fun getGames(): Flow<List<Game>> = gameDao.getGames()

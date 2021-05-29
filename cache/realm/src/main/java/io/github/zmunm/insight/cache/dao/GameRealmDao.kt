@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.withContext
 import java.util.Date
 
-internal class GameDao {
+internal class GameRealmDao {
     fun getGames(): Flow<List<TableGame>> = instantRealm {
         it.where(TableGame::class.java)
             .findAll()

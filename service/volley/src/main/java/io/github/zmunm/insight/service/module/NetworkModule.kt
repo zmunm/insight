@@ -9,8 +9,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.Const
 import io.github.zmunm.insight.repository.service.GameService
-import io.github.zmunm.insight.service.api.GameApi
-import io.github.zmunm.insight.service.impl.GameServiceImpl
+import io.github.zmunm.insight.service.api.GameVolleyApi
+import io.github.zmunm.insight.service.impl.GameVolleyService
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -26,8 +26,8 @@ internal object NetworkModule {
         context: Context,
         @Named(Const.API_KEY)
         apiKey: String,
-    ): GameService = GameServiceImpl(
-        GameApi(
+    ): GameService = GameVolleyService(
+        GameVolleyApi(
             Volley.newRequestQueue(context),
             BASE_URL,
             apiKey,

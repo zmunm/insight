@@ -6,13 +6,13 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import io.github.zmunm.insight.cache.converter.DateConverter
-import io.github.zmunm.insight.cache.dao.GameDao
+import io.github.zmunm.insight.cache.dao.GameRoomDao
 import io.github.zmunm.insight.cache.table.TableGame
 
 @Database(entities = [TableGame::class], version = 1, exportSchema = false)
 @TypeConverters(DateConverter::class)
 internal abstract class AppDatabase : RoomDatabase() {
-    abstract fun gameDao(): GameDao
+    abstract fun gameDao(): GameRoomDao
 
     companion object {
 

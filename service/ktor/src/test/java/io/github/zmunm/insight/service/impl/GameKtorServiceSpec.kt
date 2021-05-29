@@ -1,11 +1,11 @@
 package io.github.zmunm.insight.service.impl
 
 import io.github.zmunm.insight.service.GameServiceSpec
-import io.github.zmunm.insight.service.api.GameApi
+import io.github.zmunm.insight.service.api.GameKtorApi
 
-class GameServiceImplSpec : GameServiceSpec({ url ->
-    GameServiceImpl(
-        GameApi(
+class GameKtorServiceSpec : GameServiceSpec({ url ->
+    GameKtorService(
+        GameKtorApi(
             url,
             "KEY"
         ),

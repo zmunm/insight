@@ -7,8 +7,8 @@ import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.Const
 import io.github.zmunm.insight.repository.service.GameService
 import io.github.zmunm.insight.service.RetrofitInstance
-import io.github.zmunm.insight.service.api.GameApi
-import io.github.zmunm.insight.service.impl.GameServiceImpl
+import io.github.zmunm.insight.service.api.GameRetrofitApi
+import io.github.zmunm.insight.service.impl.GameRetrofitService
 import javax.inject.Named
 import javax.inject.Singleton
 
@@ -22,7 +22,7 @@ internal object NetworkModule {
     fun provideGameService(
         @Named(Const.API_KEY)
         apiKey: String,
-    ): GameService = GameServiceImpl(
-        RetrofitInstance(BASE_URL, apiKey).create(GameApi::class.java)
+    ): GameService = GameRetrofitService(
+        RetrofitInstance(BASE_URL, apiKey).create(GameRetrofitApi::class.java)
     )
 }

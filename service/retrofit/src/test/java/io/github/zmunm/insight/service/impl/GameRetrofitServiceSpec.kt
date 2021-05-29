@@ -2,12 +2,12 @@ package io.github.zmunm.insight.service.impl
 
 import io.github.zmunm.insight.service.GameServiceSpec
 import io.github.zmunm.insight.service.RetrofitInstance
-import io.github.zmunm.insight.service.api.GameApi
+import io.github.zmunm.insight.service.api.GameRetrofitApi
 
-class GameServiceImplSpec : GameServiceSpec({ url ->
-    GameServiceImpl(
+class GameRetrofitServiceSpec : GameServiceSpec({ url ->
+    GameRetrofitService(
         RetrofitInstance(
             url, "KEY"
-        ).create(GameApi::class.java),
+        ).create(GameRetrofitApi::class.java),
     )
 })

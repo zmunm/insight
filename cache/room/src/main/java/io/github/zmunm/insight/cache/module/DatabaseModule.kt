@@ -7,7 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.cache.AppDatabase
-import io.github.zmunm.insight.cache.impl.GameCacheImpl
+import io.github.zmunm.insight.cache.impl.GameRoomCache
 import io.github.zmunm.insight.repository.service.GameCache
 import javax.inject.Singleton
 
@@ -19,7 +19,7 @@ internal object DatabaseModule {
     fun provideGameService(
         @ApplicationContext
         context: Context
-    ): GameCache = GameCacheImpl(
+    ): GameCache = GameRoomCache(
         AppDatabase.getInstance(context).gameDao()
     )
 }

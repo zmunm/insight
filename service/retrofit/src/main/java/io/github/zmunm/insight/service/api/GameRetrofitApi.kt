@@ -8,7 +8,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-internal interface GameApi {
+internal interface GameRetrofitApi {
     @GET("games")
     suspend fun fetchGames(
         @Query("page") page: Int?,
