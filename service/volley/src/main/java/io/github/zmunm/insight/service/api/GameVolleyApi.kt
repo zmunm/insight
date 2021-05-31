@@ -3,10 +3,10 @@ package io.github.zmunm.insight.service.api
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.VolleyError
-import com.android.volley.toolbox.StringRequest
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import io.github.zmunm.insight.repository.KnownThrowable
+import io.github.zmunm.insight.service.GsonRequest
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail
@@ -22,6 +22,8 @@ internal class GameVolleyApi(
     private val gson = Gson()
     private val keyPostFix = "&key=$apiKey"
 
+    private fun <T> T.toSuccess() = Result.success(this)
+
     private fun <T> VolleyError.toFailure() =
         Result.failure<T>(
             KnownThrowable(
@@ -33,22 +35,19 @@ internal class GameVolleyApi(
             )
         )
 
+    private inline fun <reified T> typeToken() = object : TypeToken<T>() {}
+
     suspend fun fetchGames(
         page: Int?,
     ): Result<ResponseList<ResponseGame>> = suspendCoroutine { cont ->
         requestQueue.add(
-            StringRequest(
+            GsonRequest<ResponseList<ResponseGame>>(
                 Request.Method.GET,
                 buildUrl("games", mapOf("page" to page)),
+                typeToken(),
+                null,
                 { response ->
-                    cont.resume(
-                        Result.success(
-                            gson.fromJson(
-                                response,
-                                object : TypeToken<ResponseList<ResponseGame>>() {}.type
-                            )
-                        )
-                    )
+                    cont.resume(response.toSuccess())
                 },
                 {
                     cont.resume(it.toFailure())
@@ -61,18 +60,13 @@ internal class GameVolleyApi(
         id: Long,
     ): Result<ResponseGameDetail> = suspendCoroutine { cont ->
         requestQueue.add(
-            StringRequest(
+            GsonRequest<ResponseGameDetail>(
                 Request.Method.GET,
                 buildUrl("games/$id"),
+                typeToken(),
+                null,
                 { response ->
-                    cont.resume(
-                        Result.success(
-                            gson.fromJson(
-                                response,
-                                ResponseGameDetail::class.java
-                            )
-                        )
-                    )
+                    cont.resume(response.toSuccess())
                 },
                 {
                     cont.resume(it.toFailure())
