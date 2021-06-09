@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui
+package io.github.zmunm.insight.ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -8,7 +8,7 @@ import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.FragmentRecentBinding
 import io.github.zmunm.insight.ui.adapter.RecentAdapter
 import io.github.zmunm.insight.ui.base.BaseFragment
-import io.github.zmunm.insight.ui.top.RecentViewModel
+import io.github.zmunm.insight.viewmodel.RecentViewModel
 
 @AndroidEntryPoint
 class RecentFragment : BaseFragment<FragmentRecentBinding>() {

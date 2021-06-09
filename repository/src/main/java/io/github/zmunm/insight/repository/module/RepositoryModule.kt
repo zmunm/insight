@@ -6,8 +6,8 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.repository.GameRepository
+import io.github.zmunm.insight.repository.cache.GameCache
 import io.github.zmunm.insight.repository.datasource.GameDataSource
-import io.github.zmunm.insight.repository.service.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import kotlinx.coroutines.Dispatchers
 

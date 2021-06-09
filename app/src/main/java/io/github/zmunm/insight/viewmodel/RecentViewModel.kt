@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui.top
+package io.github.zmunm.insight.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.asLiveData

@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui.top
+package io.github.zmunm.insight.ui.fragment
 
 import android.os.Bundle
 import android.view.View
@@ -9,6 +9,7 @@ import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.FragmentTopRatedBinding
 import io.github.zmunm.insight.ui.adapter.TopRatedAdapter
 import io.github.zmunm.insight.ui.base.BaseFragment
+import io.github.zmunm.insight.viewmodel.TopRatedViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -30,7 +31,7 @@ class TopRatedFragment : BaseFragment<FragmentTopRatedBinding>() {
 
         pageJob?.cancel()
         pageJob = lifecycleScope.launch {
-            viewModel.getPager().collectLatest {
+            viewModel.pager.collectLatest {
                 adapter.submitData(it)
             }
         }

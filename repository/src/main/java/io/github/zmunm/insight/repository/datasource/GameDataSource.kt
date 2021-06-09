@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.repository.GameRepository
 import io.github.zmunm.insight.repository.KnownThrowable
-import io.github.zmunm.insight.repository.service.GameCache
+import io.github.zmunm.insight.repository.cache.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope

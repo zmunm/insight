@@ -6,6 +6,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import io.github.zmunm.insight.R
 import io.github.zmunm.insight.databinding.ActivitySingleDetailBinding
 import io.github.zmunm.insight.ui.base.BaseActivity
+import io.github.zmunm.insight.viewmodel.SingleDetailViewModel
 
 @AndroidEntryPoint
 class SingleDetailActivity : BaseActivity<ActivitySingleDetailBinding>() {

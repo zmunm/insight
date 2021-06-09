@@ -5,7 +5,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"
-        android:name="io.github.zmunm.insight.ui.MainPagerFragment"
+        android:name="io.github.zmunm.insight.ui.fragment.MainPagerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -6,7 +6,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.cache.dao.GameRealmDao
 import io.github.zmunm.insight.cache.impl.GameRealmCache
-import io.github.zmunm.insight.repository.service.GameCache
+import io.github.zmunm.insight.repository.cache.GameCache
 import javax.inject.Singleton
 
 @Module

@@ -1,7 +1,7 @@
 package io.github.zmunm.insight.repository.datasource
 
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.repository.service.GameCache
+import io.github.zmunm.insight.repository.cache.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import io.kotest.core.spec.style.DescribeSpec
 import io.mockk.Runs

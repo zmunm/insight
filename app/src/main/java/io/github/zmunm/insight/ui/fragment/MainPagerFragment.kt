@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui
+package io.github.zmunm.insight.ui.fragment
 
 import android.os.Bundle
 import android.view.View

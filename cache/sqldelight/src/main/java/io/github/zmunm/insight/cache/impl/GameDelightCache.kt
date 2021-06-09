@@ -6,7 +6,7 @@ import io.github.zmunm.insight.DelightDatabase
 import io.github.zmunm.insight.TableGame
 import io.github.zmunm.insight.cache.converter.DateConverter
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.repository.service.GameCache
+import io.github.zmunm.insight.repository.cache.GameCache
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull

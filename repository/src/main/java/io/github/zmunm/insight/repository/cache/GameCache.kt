@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.repository.service
+package io.github.zmunm.insight.repository.cache
 
 import io.github.zmunm.insight.entity.Game
 import kotlinx.coroutines.flow.Flow

@@ -9,7 +9,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.DelightDatabase
 import io.github.zmunm.insight.cache.impl.GameDelightCache
-import io.github.zmunm.insight.repository.service.GameCache
+import io.github.zmunm.insight.repository.cache.GameCache
 import javax.inject.Singleton
 
 @Module

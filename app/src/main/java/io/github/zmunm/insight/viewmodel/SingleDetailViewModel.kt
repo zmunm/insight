@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.ui.detail
+package io.github.zmunm.insight.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
