@@ -7,8 +7,7 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity"))
-    implementation(project(":usecase"))
+    implementation(project(":domain"))
     implementation(project(":repository"))
 
     implementation(Dependency.COROUTINE)

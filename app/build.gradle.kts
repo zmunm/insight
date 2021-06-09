@@ -77,8 +77,7 @@ tasks.withType<DokkaTask>().configureEach {
 }
 
 dependencies {
-    implementation(project(":entity"))
-    implementation(project(":usecase"))
+    implementation(project(":domain"))
     implementation(project(":repository"))
 
     Dimension.Service.Retrofit { implement(project(":$type:$flavor")) }

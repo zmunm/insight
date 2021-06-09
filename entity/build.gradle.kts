@@ -1,5 +1,0 @@
-plugins {
-    kotlin
-    detekt
-    document
-}

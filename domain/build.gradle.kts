@@ -6,7 +6,6 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":entity"))
     implementation(group = "javax.inject", name = "javax.inject", version = "1")
     implementation(Dependency.COROUTINE)
 }

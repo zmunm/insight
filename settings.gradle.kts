@@ -1,8 +1,7 @@
 rootProject.name = "insight"
 include(
     ":app",
-    ":entity",
-    ":usecase",
+    ":domain",
     ":repository",
 
     ":service:verifier",
