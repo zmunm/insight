@@ -5,25 +5,27 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import java.util.Date
 
-internal class DateRoomConverterSpec : FunSpec({
-    val converter = DateRoomConverter()
+abstract class DateConverterSpec(
+    toDate: (Long?) -> Date?,
+    fromDate: (Date?) -> Long?,
+) : FunSpec({
 
     test("null") {
-        converter.dateToTimestamp(null) shouldBe null
-        converter.fromTimestamp(null) shouldBe null
+        toDate(null) shouldBe null
+        fromDate(null) shouldBe null
     }
 
     test("from date") {
         val date = Date()
-        val timeStamp = converter.dateToTimestamp(date)
+        val timeStamp = fromDate(date)
         timeStamp shouldNotBe null
-        converter.fromTimestamp(timeStamp)?.time shouldBe date.time
+        toDate(timeStamp)?.time shouldBe date.time
     }
 
     test("to date") {
         val timeStamp = 1_000L
-        val date = converter.fromTimestamp(timeStamp)
+        val date = toDate(timeStamp)
         date shouldNotBe null
-        converter.dateToTimestamp(date) shouldBe timeStamp
+        fromDate(date) shouldBe timeStamp
     }
 })
