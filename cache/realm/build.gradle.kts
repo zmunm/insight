@@ -19,4 +19,6 @@ dependencies {
     kapt(Dependency.HILT_APT)
 
     implementation(Dependency.TIMBER)
+
+    testImplementation(project(":cache:verifier"))
 }

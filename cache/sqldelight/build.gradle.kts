@@ -29,5 +29,6 @@ dependencies {
 
     implementation(Dependency.TIMBER)
 
+    testImplementation(project(":cache:verifier"))
     testImplementation(Dependency.SQLDELIGHT_SQLITE)
 }

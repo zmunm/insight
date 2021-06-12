@@ -23,4 +23,6 @@ dependencies {
     kapt(Dependency.MOSHI_APT)
 
     implementation(Dependency.TIMBER)
+
+    testImplementation(project(":cache:verifier"))
 }

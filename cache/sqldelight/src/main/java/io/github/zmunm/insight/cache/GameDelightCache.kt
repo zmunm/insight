@@ -4,7 +4,7 @@ import com.squareup.sqldelight.db.SqlDriver
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import io.github.zmunm.insight.DelightDatabase
 import io.github.zmunm.insight.TableGame
-import io.github.zmunm.insight.cache.converter.DateConverter
+import io.github.zmunm.insight.cache.converter.DateDelightConverter
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.entity.Like
 import io.github.zmunm.insight.repository.cache.GameCache
@@ -19,7 +19,7 @@ internal class GameDelightCache(
     private val tableGameQueries = DelightDatabase(
         driver,
         tableGameAdapter = TableGame.Adapter(
-            addedAtAdapter = DateConverter()
+            addedAtAdapter = DateDelightConverter()
         )
     ).tableGameQueries
 

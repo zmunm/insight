@@ -5,8 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import io.github.zmunm.insight.cache.converter.DateConverter
-import io.github.zmunm.insight.cache.converter.StringListConverter
+import io.github.zmunm.insight.cache.converter.DateRoomConverter
+import io.github.zmunm.insight.cache.converter.StringListRoomConverter
 import io.github.zmunm.insight.cache.dao.GameRoomDao
 import io.github.zmunm.insight.cache.table.TableGame
 import io.github.zmunm.insight.cache.table.TableLike
@@ -20,8 +20,8 @@ import io.github.zmunm.insight.cache.table.TableLike
     exportSchema = false
 )
 @TypeConverters(
-    DateConverter::class,
-    StringListConverter::class,
+    DateRoomConverter::class,
+    StringListRoomConverter::class,
 )
 internal abstract class AppDatabase : RoomDatabase() {
     abstract fun gameDao(): GameRoomDao
