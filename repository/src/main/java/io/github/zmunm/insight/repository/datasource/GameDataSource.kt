@@ -1,9 +1,10 @@
 package io.github.zmunm.insight.repository.datasource
 
 import android.annotation.SuppressLint
+import io.github.zmunm.insight.KnownThrowable
 import io.github.zmunm.insight.entity.Game
+import io.github.zmunm.insight.entity.Like
 import io.github.zmunm.insight.repository.GameRepository
-import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.repository.cache.GameCache
 import io.github.zmunm.insight.repository.service.GameService
 import kotlinx.coroutines.CoroutineDispatcher
@@ -47,5 +48,21 @@ internal class GameDataSource(
                     Timber.e(it)
                 }
             }
+    }
+
+    override suspend fun deleteAll() {
+        gameCache.deleteAll()
+    }
+
+    override fun getLikeFlow(id: Long): Flow<Like> = gameCache.getLikeFlow(id)
+
+    override suspend fun toggleLike(game: Game) {
+        gameCache.putGame(game)
+        gameCache.insertLike(
+            Like(
+                game.id,
+                gameCache.getLike(game.id)?.like?.not() ?: true
+            )
+        )
     }
 }

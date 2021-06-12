@@ -19,5 +19,8 @@ dependencies {
     implementation(Dependency.ROOM_KTX)
     kapt(Dependency.ROOM_COMPILER)
 
+    implementation(Dependency.MOSHI)
+    kapt(Dependency.MOSHI_APT)
+
     implementation(Dependency.TIMBER)
 }

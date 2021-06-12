@@ -18,7 +18,7 @@ class GamePagingSourceSpec : DescribeSpec({
     val source = GamePagingSource(getGames)
 
     describe("paging") {
-        var books: List<Game> = emptyList()
+        var games: List<Game> = emptyList()
         val pageSlot = slot<Int>()
 
         coEvery {
@@ -26,11 +26,11 @@ class GamePagingSourceSpec : DescribeSpec({
                 page = capture(pageSlot),
             )
         } answers {
-            books
+            games
         }
 
         it("start") {
-            books = listOf(mockk())
+            games = listOf(mockk())
             source.load(
                 PagingSource.LoadParams.Refresh(
                     key = null,
@@ -38,7 +38,7 @@ class GamePagingSourceSpec : DescribeSpec({
                     placeholdersEnabled = false
                 )
             ) shouldBe PagingSource.LoadResult.Page(
-                data = books,
+                data = games,
                 prevKey = null,
                 nextKey = 2
             )
@@ -47,7 +47,7 @@ class GamePagingSourceSpec : DescribeSpec({
         }
 
         it("end") {
-            books = emptyList()
+            games = emptyList()
             source.load(
                 PagingSource.LoadParams.Refresh(
                     key = 10,
@@ -55,7 +55,7 @@ class GamePagingSourceSpec : DescribeSpec({
                     placeholdersEnabled = false
                 )
             ) shouldBe PagingSource.LoadResult.Page(
-                data = books,
+                data = games,
                 prevKey = 9,
                 nextKey = null
             )
@@ -64,7 +64,7 @@ class GamePagingSourceSpec : DescribeSpec({
         }
 
         it("page 5") {
-            books = listOf(mockk())
+            games = listOf(mockk())
             source.load(
                 PagingSource.LoadParams.Refresh(
                     key = 5,
@@ -72,7 +72,7 @@ class GamePagingSourceSpec : DescribeSpec({
                     placeholdersEnabled = false
                 )
             ) shouldBe PagingSource.LoadResult.Page(
-                data = books,
+                data = games,
                 prevKey = 4,
                 nextKey = 6
             )

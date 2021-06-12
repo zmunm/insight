@@ -1,6 +1,6 @@
 package io.github.zmunm.insight.service.api
 
-import io.github.zmunm.insight.repository.KnownThrowable
+import io.github.zmunm.insight.KnownThrowable
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame
 import io.github.zmunm.insight.service.dao.ResponseGameDetail

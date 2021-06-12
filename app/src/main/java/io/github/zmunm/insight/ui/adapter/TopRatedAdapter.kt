@@ -8,8 +8,13 @@ import io.github.zmunm.insight.databinding.ListGameBinding
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.ui.adapter.diff.GameDiff
 import io.github.zmunm.insight.ui.adapter.viewholder.GameViewHolder
+import io.github.zmunm.insight.viewmodel.GameViewModel
+import javax.inject.Inject
+import javax.inject.Provider
 
-class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiff()) {
+class TopRatedAdapter @Inject constructor(
+    private val viewModelProvider: Provider<GameViewModel>,
+) : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDiff()) {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -24,8 +29,13 @@ class TopRatedAdapter : PagingDataAdapter<Game, RecyclerView.ViewHolder>(GameDif
         )
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        getItem(position)?.let {
-            (holder as GameViewHolder).bind(it)
+        when (holder) {
+            is GameViewHolder ->
+                holder.bind(
+                    viewModelProvider.get().apply {
+                        getItem(position)?.let(::bindBook)
+                    }
+                )
         }
     }
 }

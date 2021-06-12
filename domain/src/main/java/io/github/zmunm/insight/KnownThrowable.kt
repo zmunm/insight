@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.repository
+package io.github.zmunm.insight
 
 class KnownThrowable(
     message: String,

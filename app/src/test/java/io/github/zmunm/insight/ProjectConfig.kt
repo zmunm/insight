@@ -9,7 +9,7 @@ import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 
-object ProjectConfig : AbstractProjectConfig() {
+internal object ProjectConfig : AbstractProjectConfig() {
     override val isolationMode = IsolationMode.InstancePerLeaf
 
     private val testDispatcher = TestCoroutineDispatcher()

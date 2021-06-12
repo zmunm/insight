@@ -1,6 +1,7 @@
 package io.github.zmunm.insight.repository.cache
 
 import io.github.zmunm.insight.entity.Game
+import io.github.zmunm.insight.entity.Like
 import kotlinx.coroutines.flow.Flow
 import java.util.concurrent.TimeUnit
 
@@ -17,6 +18,14 @@ interface GameCache {
     ): Boolean
 
     suspend fun insertAll(games: List<Game>)
+
+    suspend fun deleteAll()
+
+    suspend fun getLike(id: Long): Like?
+
+    fun getLikeFlow(id: Long): Flow<Like>
+
+    suspend fun insertLike(like: Like)
 
     companion object {
         val FRESH_TIMEOUT = TimeUnit.DAYS.toMillis(1)

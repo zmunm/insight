@@ -2,8 +2,8 @@ package io.github.zmunm.insight.service.impl
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import io.github.zmunm.insight.KnownThrowable
 import io.github.zmunm.insight.entity.Game
-import io.github.zmunm.insight.repository.KnownThrowable
 import io.github.zmunm.insight.repository.service.GameService
 import io.github.zmunm.insight.service.api.GameRetrofitApi
 import io.github.zmunm.insight.service.dao.ResponseError

@@ -5,7 +5,7 @@ import com.android.volley.RequestQueue
 import com.android.volley.VolleyError
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import io.github.zmunm.insight.repository.KnownThrowable
+import io.github.zmunm.insight.KnownThrowable
 import io.github.zmunm.insight.service.GsonRequest
 import io.github.zmunm.insight.service.dao.ResponseError
 import io.github.zmunm.insight.service.dao.ResponseGame

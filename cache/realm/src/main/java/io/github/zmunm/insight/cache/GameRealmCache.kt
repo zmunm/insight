@@ -1,15 +1,15 @@
-package io.github.zmunm.insight.cache.impl
+package io.github.zmunm.insight.cache
 
-import io.github.zmunm.insight.cache.dao.GameRoomDao
-import io.github.zmunm.insight.cache.table.TableGame
+import io.github.zmunm.insight.cache.dao.GameRealmDao
 import io.github.zmunm.insight.entity.Game
+import io.github.zmunm.insight.entity.Like
 import io.github.zmunm.insight.repository.cache.GameCache
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 
-internal class GameRoomCache(
-    private val gameDao: GameRoomDao,
+internal class GameRealmCache(
+    private val gameDao: GameRealmDao,
 ) : GameCache {
 
     override fun getGames(): Flow<List<Game>> = gameDao.getGames()
@@ -39,15 +39,17 @@ internal class GameRoomCache(
         }
     )
 
-    private fun Game.toTable(): TableGame = TableGame(
-        id = id,
-        name = name,
-        backgroundImage = backgroundImage,
-    )
+    override suspend fun deleteAll() {
+        gameDao.deleteAll()
+    }
 
-    private fun TableGame.toEntity(): Game = Game(
-        id = id,
-        name = name,
-        backgroundImage = backgroundImage,
-    )
+    override suspend fun getLike(id: Long): Like? =
+        gameDao.getLike(id)?.toEntity()
+
+    override fun getLikeFlow(id: Long): Flow<Like> = gameDao.getLikeFlow(id)
+        .map { it.toEntity() }
+
+    override suspend fun insertLike(like: Like) {
+        gameDao.insertLike(like.toTable())
+    }
 }

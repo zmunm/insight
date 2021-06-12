@@ -6,11 +6,23 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import io.github.zmunm.insight.cache.converter.DateConverter
+import io.github.zmunm.insight.cache.converter.StringListConverter
 import io.github.zmunm.insight.cache.dao.GameRoomDao
 import io.github.zmunm.insight.cache.table.TableGame
+import io.github.zmunm.insight.cache.table.TableLike
 
-@Database(entities = [TableGame::class], version = 1, exportSchema = false)
-@TypeConverters(DateConverter::class)
+@Database(
+    entities = [
+        TableGame::class,
+        TableLike::class,
+    ],
+    version = 1,
+    exportSchema = false
+)
+@TypeConverters(
+    DateConverter::class,
+    StringListConverter::class,
+)
 internal abstract class AppDatabase : RoomDatabase() {
     abstract fun gameDao(): GameRoomDao
 
@@ -18,7 +30,8 @@ internal abstract class AppDatabase : RoomDatabase() {
 
         private const val DATABASE_NAME = "DATABASE"
 
-        @Volatile private var instance: AppDatabase? = null
+        @Volatile
+        private var instance: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase {
             return instance ?: synchronized(this) {

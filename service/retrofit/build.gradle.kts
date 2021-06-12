@@ -20,6 +20,7 @@ dependencies {
     implementation(Dependency.RETROFIT_INTERCEPTOR)
 
     implementation(Dependency.MOSHI)
+    implementation(Dependency.MOSHI_ADAPTER)
     kapt(Dependency.MOSHI_APT)
 
     implementation(Dependency.TIMBER)

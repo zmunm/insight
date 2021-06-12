@@ -28,12 +28,8 @@ internal class GetRecentGamesSpec : DescribeSpec({
         }
     }
 
-    afterTest {
-        confirmVerified(
-            gameRepository
-        )
-        clearMocks(
-            gameRepository
-        )
+    afterContainer {
+        confirmVerified(gameRepository)
+        clearMocks(gameRepository)
     }
 })

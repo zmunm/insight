@@ -15,7 +15,7 @@ internal class GetGameDetailSpec : DescribeSpec({
     )
 
     describe("get game detail by id") {
-        it("id 0") {
+        it("id 1") {
             coEvery {
                 gameRepository.getGameDetail(1)
             } returns mockk()
@@ -28,12 +28,8 @@ internal class GetGameDetailSpec : DescribeSpec({
         }
     }
 
-    afterTest {
-        confirmVerified(
-            gameRepository
-        )
-        clearMocks(
-            gameRepository
-        )
+    afterContainer {
+        confirmVerified(gameRepository)
+        clearMocks(gameRepository)
     }
 })

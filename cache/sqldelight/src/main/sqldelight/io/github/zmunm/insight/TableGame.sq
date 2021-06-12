@@ -1,10 +1,16 @@
 import java.util.Date;
 
 CREATE TABLE tableGame (
-    id INTEGER NOT NULL,
+    id INTEGER NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
     backgroundImage TEXT NOT NULL,
     addedAt INTEGER AS Date NOT NULL
+);
+
+CREATE TABLE tableLike (
+    id INTEGER NOT NULL PRIMARY KEY,
+    like INTEGER AS Boolean DEFAULT 0 NOT NULL,
+    FOREIGN KEY (id) REFERENCES tableGame(id) ON DELETE CASCADE
 );
 
 selectAll:
@@ -26,8 +32,17 @@ INSERT INTO tableGame(id, name, backgroundImage, addedAt)
 VALUES (?, ?, ?, ?);
 
 insertFullGame:
-INSERT INTO tableGame(id, name, backgroundImage, addedAt)
+INSERT OR REPLACE INTO tableGame(id, name, backgroundImage, addedAt)
 VALUES ?;
 
-deleteGame:
-DELETE FROM tableGame WHERE id = ?;
+deleteAllGame:
+DELETE FROM tableGame;
+
+selectLike:
+SELECT *
+FROM tableLike
+WHERE id = ?;
+
+insertLike:
+INSERT OR REPLACE INTO tableLike(id, like)
+VALUES (?, ?);

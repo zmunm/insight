@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.cache.module
+package io.github.zmunm.insight.cache
 
 import android.content.Context
 import com.squareup.sqldelight.android.AndroidSqliteDriver
@@ -8,7 +8,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.github.zmunm.insight.DelightDatabase
-import io.github.zmunm.insight.cache.impl.GameDelightCache
 import io.github.zmunm.insight.repository.cache.GameCache
 import javax.inject.Singleton
 

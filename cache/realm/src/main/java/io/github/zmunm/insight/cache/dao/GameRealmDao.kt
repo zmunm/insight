@@ -1,35 +1,42 @@
 package io.github.zmunm.insight.cache.dao
 
 import io.github.zmunm.insight.cache.table.TableGame
-import io.realm.Realm
+import io.github.zmunm.insight.cache.table.TableLike
+import io.realm.kotlin.delete
 import io.realm.kotlin.toFlow
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.withContext
 import java.util.Date
 
-internal class GameRealmDao {
-    fun getGames(): Flow<List<TableGame>> = instantRealm {
-        it.where(TableGame::class.java)
+internal class GameRealmDao : BaseRealmDao {
+    fun getGames(): Flow<List<TableGame>> = instantRealm { realm ->
+        realm.where(TableGame::class.java)
             .findAll()
             .toFlow()
-    }
+            .mapNotNull {
+                realm.copyFromRealm(it)
+            }
+    }.flowOn(Dispatchers.Main)
 
     fun getGame(id: Long): Flow<TableGame> = instantRealmTransaction { realm ->
         val findItem = realm.where(TableGame::class.java)
             .equalTo("id", id)
             .findFirst()
-        (findItem ?: realm.copyToRealm(TableGame(id = id)))
+        (findItem ?: realm.copyToRealmOrUpdate(TableGame(id = id)))
             .toFlow()
             .mapNotNull {
-                if (it?.isValid == true) {
+                if (it?.isValid == true && it.backgroundImage.isNotBlank()) {
                     realm.copyFromRealm(it)
                 } else {
                     null
                 }
             }
-    }
+    }.flowOn(Dispatchers.Main)
+        .distinctUntilChanged()
 
     suspend fun hasGame(id: Long, timeout: Long): Boolean =
         withContext(Dispatchers.IO) {
@@ -42,8 +49,12 @@ internal class GameRealmDao {
         }
 
     fun putGame(game: TableGame) {
-        asyncRealm {
-            it.insertOrUpdate(game)
+        instantRealmTransaction { realm ->
+            game.like = realm.where(TableGame::class.java)
+                .equalTo("id", game.id)
+                .findFirst()
+                ?.like
+            realm.insertOrUpdate(game)
         }
     }
 
@@ -53,25 +64,41 @@ internal class GameRealmDao {
         }
     }
 
-    private fun <R> asyncRealm(run: (Realm) -> R) =
-        Realm.getDefaultInstance().use {
-            it.executeTransactionAsync { realm ->
-                run(realm)
-            }
+    fun deleteAll() {
+        asyncRealm {
+            it.delete<TableGame>()
+        }
+    }
+
+    fun getLike(id: Long): TableLike? =
+        instantRealm { realm ->
+            realm.where(TableLike::class.java)
+                .equalTo("id", id)
+                .findFirst()
+                ?.let {
+                    realm.copyFromRealm(it)
+                }
         }
 
-    private fun <R> instantRealmTransaction(run: (Realm) -> R) =
-        Realm.getDefaultInstance().use { realm ->
-            realm.beginTransaction()
-            try {
-                run(realm)
-            } finally {
-                realm.commitTransaction()
+    fun getLikeFlow(id: Long): Flow<TableLike> = instantRealmTransaction { realm ->
+        val findItem = realm.where(TableLike::class.java)
+            .equalTo("id", id)
+            .findFirst()
+        (findItem ?: realm.copyToRealm(TableLike(id = id)))
+            .toFlow()
+            .distinctUntilChanged()
+            .mapNotNull {
+                if (it?.isValid == true) {
+                    realm.copyFromRealm(it)
+                } else {
+                    null
+                }
             }
-        }
+    }
 
-    private fun <R> instantRealm(run: (Realm) -> R) =
-        Realm.getDefaultInstance().use { realm ->
-            run(realm)
+    fun insertLike(tableLike: TableLike) {
+        instantRealmTransaction {
+            it.insertOrUpdate(tableLike)
         }
+    }
 }

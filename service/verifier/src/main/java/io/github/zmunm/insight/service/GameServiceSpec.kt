@@ -20,8 +20,13 @@ abstract class GameServiceSpec(
     }
 
     describe("fetchGames") {
-        it("unknown page") {
-            server.enqueue(gameListResponse.toMockResponse())
+        it("page 1") {
+            server.enqueue(gameListResponse1.toMockResponse())
+            gameService.fetchGames(null)
+        }
+
+        it("page 2") {
+            server.enqueue(gameListResponse2.toMockResponse())
             gameService.fetchGames(null)
         }
 

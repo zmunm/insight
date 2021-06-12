@@ -1,4 +1,4 @@
-package io.github.zmunm.insight.cache.module
+package io.github.zmunm.insight.cache
 
 import android.content.Context
 import dagger.Module
@@ -6,8 +6,6 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import io.github.zmunm.insight.cache.AppDatabase
-import io.github.zmunm.insight.cache.impl.GameRoomCache
 import io.github.zmunm.insight.repository.cache.GameCache
 import javax.inject.Singleton
 
