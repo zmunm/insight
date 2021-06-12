@@ -2,9 +2,7 @@ package io.github.zmunm.insight.service
 
 import io.github.zmunm.insight.repository.service.GameService
 import io.kotest.core.spec.style.DescribeSpec
-import io.kotest.core.test.TestCase
 import io.kotest.core.test.TestContext
-import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 
 private const val CODE_UNAUTHORIZED = 401
