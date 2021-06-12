@@ -5,8 +5,8 @@ import java.util.Date
 
 internal class DateRoomConverter {
     @TypeConverter
-    fun toDate(value: Long?): Date? = value?.let { Date(value) }
+    fun toDate(value: Long): Date = Date(value)
 
     @TypeConverter
-    fun fromDate(date: Date?): Long? = date?.time
+    fun fromDate(date: Date): Long = date.time
 }

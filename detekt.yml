@@ -631,7 +631,6 @@ style:
     active: true
   MaxLineLength:
     active: true
-    excludes: [ "**/Response.kt" ]
     maxLineLength: 120
     excludePackageStatements: true
     excludeImportStatements: true

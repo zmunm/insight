@@ -111,5 +111,7 @@ dependencies {
     implementation(Dependency.GLIDE)
     kapt(Dependency.GLIDE_APT)
 
+    debugImplementation(Dependency.LEAK_CANARY)
+
     implementation(Dependency.TIMBER)
 }

@@ -49,6 +49,8 @@ object Dependency {
 
     const val GLIDE = "com.github.bumptech.glide:glide:4.12.0"
     const val GLIDE_APT = "com.github.bumptech.glide:compiler:4.12.0"
+
+    const val LEAK_CANARY = "com.squareup.leakcanary:leakcanary-android:2.7"
     // endregion
 
     // region test

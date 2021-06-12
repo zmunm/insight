@@ -8,6 +8,6 @@ import java.util.Date
 internal data class TableGame(
     @PrimaryKey val id: Long,
     val name: String,
-    val backgroundImage: String,
+    val backgroundImage: String?,
     val addedAt: Date = Date(),
 )

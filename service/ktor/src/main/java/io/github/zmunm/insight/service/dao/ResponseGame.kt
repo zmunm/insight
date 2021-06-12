@@ -1,12 +1,17 @@
+@file:UseSerializers(DateKtorConverter::class)
+
 package io.github.zmunm.insight.service.dao
 
+import io.github.zmunm.insight.service.converter.DateKtorConverter
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
+import java.util.Date
 
 @Serializable
 internal data class ResponseGame(
     val added: Int,
     val added_by_status: AddedByStatus,
-    val background_image: String,
+    val background_image: String?,
     val clip: String?,
     val dominant_color: String,
     val esrb_rating: EsrbRating?,
@@ -21,7 +26,7 @@ internal data class ResponseGame(
     val rating_top: Int,
     val ratings: List<Rating>,
     val ratings_count: Int,
-    val released: String,
+    val released: Date?,
     val reviews_count: Int,
     val reviews_text_count: Int,
     val saturated_color: String,

@@ -8,7 +8,7 @@ import java.util.Date
 internal val gameMapper: (
     id: Long,
     name: String,
-    backgroundImage: String,
+    backgroundImage: String?,
     addedAt: Date,
 ) -> Game = { id, name, backgroundImage, _ ->
     Game(

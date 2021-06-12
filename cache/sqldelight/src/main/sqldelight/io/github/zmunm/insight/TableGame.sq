@@ -3,7 +3,7 @@ import java.util.Date;
 CREATE TABLE tableGame (
     id INTEGER NOT NULL PRIMARY KEY,
     name TEXT NOT NULL,
-    backgroundImage TEXT NOT NULL,
+    backgroundImage TEXT,
     addedAt INTEGER AS Date NOT NULL
 );
 

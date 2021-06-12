@@ -6,20 +6,15 @@ import io.kotest.matchers.shouldNotBe
 import java.util.Date
 
 abstract class DateConverterSpec(
-    toDate: (Long?) -> Date?,
-    fromDate: (Date?) -> Long?,
+    toDate: (Long) -> Date,
+    fromDate: (Date) -> Long,
 ) : FunSpec({
-
-    test("null") {
-        toDate(null) shouldBe null
-        fromDate(null) shouldBe null
-    }
 
     test("from date") {
         val date = Date()
         val timeStamp = fromDate(date)
         timeStamp shouldNotBe null
-        toDate(timeStamp)?.time shouldBe date.time
+        toDate(timeStamp).time shouldBe date.time
     }
 
     test("to date") {

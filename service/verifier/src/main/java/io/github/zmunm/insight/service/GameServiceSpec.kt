@@ -2,6 +2,9 @@ package io.github.zmunm.insight.service
 
 import io.github.zmunm.insight.repository.service.GameService
 import io.kotest.core.spec.style.DescribeSpec
+import io.kotest.core.test.TestCase
+import io.kotest.core.test.TestContext
+import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 
 private const val CODE_UNAUTHORIZED = 401
@@ -20,30 +23,40 @@ abstract class GameServiceSpec(
     }
 
     describe("fetchGames") {
-        it("page 1") {
-            server.enqueue(gameListResponse1.toMockResponse())
+        it("gameListResponse1") {
+            server.enqueue(getResponseFromResource().toMockResponse())
             gameService.fetchGames(null)
         }
 
-        it("page 2") {
-            server.enqueue(gameListResponse2.toMockResponse())
+        it("gameListResponse2") {
+            server.enqueue(getResponseFromResource().toMockResponse())
+            gameService.fetchGames(null)
+        }
+
+        it("gameListResponse3") {
+            server.enqueue(getResponseFromResource().toMockResponse())
+            gameService.fetchGames(null)
+        }
+
+        it("gameListResponse4") {
+            server.enqueue(getResponseFromResource().toMockResponse())
             gameService.fetchGames(null)
         }
 
         it("error") {
-            server.enqueue(errorResponse.toMockResponse(CODE_UNAUTHORIZED))
+            server.enqueue(getResponseFromResource().toMockResponse(CODE_UNAUTHORIZED))
             gameService.fetchGames(null)
         }
     }
 
     describe("fetchGameDetail") {
-        it("id 1") {
-            server.enqueue(gameDetailResponse.toMockResponse())
+        it("gameDetailResponse") {
+            server.enqueue(getResponseFromResource().toMockResponse())
             gameService.fetchGameDetail(1)
         }
 
         it("error") {
-            server.enqueue(errorResponse.toMockResponse(CODE_UNAUTHORIZED))
+            server.enqueue(getResponseFromResource().toMockResponse(CODE_UNAUTHORIZED))
             gameService.fetchGameDetail(1)
         }
     }
@@ -52,3 +65,9 @@ abstract class GameServiceSpec(
         server.shutdown()
     }
 })
+
+private fun TestContext.getResponseFromResource(): String {
+    val resource = javaClass.classLoader
+        ?.getResourceAsStream("${testCase.displayName}.json") ?: error(testCase.displayName)
+    return resource.bufferedReader().readText()
+}

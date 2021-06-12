@@ -29,7 +29,7 @@ internal class GameRealmDao : BaseRealmDao {
         (findItem ?: realm.copyToRealmOrUpdate(TableGame(id = id)))
             .toFlow()
             .mapNotNull {
-                if (it?.isValid == true && it.backgroundImage.isNotBlank()) {
+                if (it?.isValid == true && !it.backgroundImage.isNullOrBlank()) {
                     realm.copyFromRealm(it)
                 } else {
                     null
