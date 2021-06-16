@@ -4,9 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import io.github.zmunm.insight.ApiKey
 import io.github.zmunm.insight.BuildConfig
-import io.github.zmunm.insight.Const
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -15,6 +14,6 @@ internal object SingletonModule {
 
     @Provides
     @Singleton
-    @Named(Const.API_KEY)
+    @ApiKey
     fun provideApiKey(): String = BuildConfig.RAWG_KEY
 }
