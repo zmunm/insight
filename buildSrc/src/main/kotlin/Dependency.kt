@@ -34,16 +34,16 @@ object Dependency {
     // region presentation
     const val ANDROID_STARTUP = "androidx.startup:startup-runtime:1.0.0"
     const val ANDROID_KTX = "androidx.core:core-ktx:1.5.0"
-    const val ANDROID_FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.3.4"
+    const val ANDROID_FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.3.5"
     const val ANDROID_APPCOMPAT = "androidx.appcompat:appcompat:1.3.0"
     const val ANDROID_MATERIAL = "com.google.android.material:material:1.3.0"
     const val ANDROID_CONSTRAINT = "androidx.constraintlayout:constraintlayout:2.0.4"
     const val ANDROID_SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
-    const val LIFECYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01"
-    const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha01"
-    const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha01"
-    const val LIFECYCLE_SAVED_STATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-alpha01"
+    const val LIFECYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02"
+    const val LIFECYCLE_LIVEDATA = "androidx.lifecycle:lifecycle-livedata-ktx:2.4.0-alpha02"
+    const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02"
+    const val LIFECYCLE_SAVED_STATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-alpha02"
 
     const val PAGING = "androidx.paging:paging-runtime:3.0.0"
 
