@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import io.github.zmunm.insight.R
+import io.github.zmunm.insight.consumeInset
 import io.github.zmunm.insight.databinding.ActivitySingleDetailBinding
 import io.github.zmunm.insight.ui.base.BaseActivity
 import io.github.zmunm.insight.viewmodel.SingleDetailViewModel
@@ -18,6 +19,7 @@ class SingleDetailActivity : BaseActivity<ActivitySingleDetailBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding.appBarLayout.consumeInset()
         binding.viewModel = viewModel
     }
 }

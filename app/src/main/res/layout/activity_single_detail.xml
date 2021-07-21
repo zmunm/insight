@@ -4,55 +4,88 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="io.github.zmunm.insight.viewmodel.SingleDetailViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:adjustViewBounds="true"
-            android:contentDescription="@android:string/untitled"
-            android:scaleType="fitCenter"
-            app:imageFromUrl="@{viewModel.gameDetail.backgroundImage}"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:gravity="center_horizontal"
-            android:text="@{viewModel.gameDetail.name}"
-            android:textAppearance="?attr/textAppearanceListItem"
-            app:layout_constraintEnd_toStartOf="@id/like"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image"
-            tools:text="Tomato" />
+            android:fitsSystemWindows="true">
 
-        <ImageView
-            android:id="@+id/like"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:padding="5dp"
-            android:contentDescription="@android:string/untitled"
-            android:scaleType="fitCenter"
-            android:onClick="@{v -> viewModel.toggleLike()}"
-            android:src="@drawable/ic_star"
-            android:layout_marginEnd="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/image"
-            app:tint="@{viewModel.like ? @color/accent : @color/gray}" />
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fitsSystemWindows="true">
+
+                    <ImageView
+                        android:id="@+id/image"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@android:string/untitled"
+                        android:fitsSystemWindows="true"
+                        android:scaleType="fitCenter"
+                        app:imageFromUrl="@{viewModel.gameDetail.backgroundImage}"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:gravity="center_horizontal"
+                android:text="@{viewModel.gameDetail.name}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                app:layout_constraintEnd_toStartOf="@id/like"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Tomato" />
+
+            <ImageView
+                android:id="@+id/like"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginEnd="5dp"
+                android:contentDescription="@android:string/untitled"
+                android:onClick="@{v -> viewModel.toggleLike()}"
+                android:padding="5dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_star"
+                app:layout_constraintBottom_toBottomOf="@id/title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/title"
+                app:tint="@{viewModel.like ? @color/accent : @color/gray}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

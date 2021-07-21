@@ -5,6 +5,9 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
 import android.view.View
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.appbar.AppBarLayout
 
 fun View.getActivity(): Activity = context.getActivity()
 
@@ -17,4 +20,10 @@ fun Context.getActivity(): Activity {
         contextTemp = contextTemp.baseContext
     }
     throw ActivityNotFoundException()
+}
+
+internal fun AppBarLayout.consumeInset() {
+    ViewCompat.setOnApplyWindowInsetsListener(this) { _, _ ->
+        WindowInsetsCompat.CONSUMED
+    }
 }

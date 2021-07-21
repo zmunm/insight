@@ -9,10 +9,10 @@ repositories {
 }
 
 object PluginVersion {
-    const val ANDROID_TOOL = "4.2.1"
-    const val KOTLIN = "1.5.10"
-    const val DOKKA = "1.4.32"
-    const val VERSIONING = "0.38.0"
+    const val ANDROID_TOOL = "4.2.2"
+    const val KOTLIN = "1.5.21"
+    const val DOKKA = "1.5.0"
+    const val VERSIONING = "0.39.0"
 }
 
 dependencies {
@@ -22,7 +22,7 @@ dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.17.1")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
-    implementation("com.google.dagger:hilt-android-gradle-plugin:2.37")
-    implementation("com.squareup.sqldelight:gradle-plugin:1.5.0")
-    implementation("io.realm:realm-gradle-plugin:10.6.0")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.38")
+    implementation("com.squareup.sqldelight:gradle-plugin:1.5.1")
+    implementation("io.realm:realm-gradle-plugin:10.6.1")
 }
