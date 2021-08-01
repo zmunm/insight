@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Version.ANDROID_COMPILE)
+    compileSdk = Version.ANDROID_COMPILE
 
     defaultConfig {
-        minSdkVersion(Version.ANDROID_MIN)
-        targetSdkVersion(Version.ANDROID_TARGET)
+        minSdk = Version.ANDROID_MIN
+        targetSdk = Version.ANDROID_TARGET
     }
 
     testOptions {

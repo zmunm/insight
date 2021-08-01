@@ -3,8 +3,8 @@ object Dependency {
 
     const val TIMBER = "com.jakewharton.timber:timber:4.7.1"
 
-    const val HILT = "com.google.dagger:hilt-android:2.38"
-    const val HILT_APT = "com.google.dagger:hilt-android-compiler:2.38"
+    const val HILT = "com.google.dagger:hilt-android:2.38.1"
+    const val HILT_APT = "com.google.dagger:hilt-android-compiler:2.38.1"
 
     // region data source
     const val RETROFIT = "com.squareup.retrofit2:retrofit:2.9.0"
@@ -15,9 +15,9 @@ object Dependency {
     const val MOSHI_ADAPTER = "com.squareup.moshi:moshi-adapters:1.12.0"
     const val MOSHI_APT = "com.squareup.moshi:moshi-kotlin-codegen:1.12.0"
 
-    const val KTOR_ANDROID = "io.ktor:ktor-client-android:1.6.1"
-    const val KTOR_CIO = "io.ktor:ktor-client-cio:1.6.1"
-    const val KTOR_SERIALIZATION = "io.ktor:ktor-client-serialization-jvm:1.6.1"
+    const val KTOR_ANDROID = "io.ktor:ktor-client-android:1.6.2"
+    const val KTOR_CIO = "io.ktor:ktor-client-cio:1.6.2"
+    const val KTOR_SERIALIZATION = "io.ktor:ktor-client-serialization-jvm:1.6.2"
 
     const val VOLLEY = "com.android.volley:volley:1.2.0"
 
@@ -34,10 +34,10 @@ object Dependency {
     // region presentation
     const val ANDROID_STARTUP = "androidx.startup:startup-runtime:1.0.0"
     const val ANDROID_KTX = "androidx.core:core-ktx:1.6.0"
-    const val ANDROID_FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.3.5"
-    const val ANDROID_APPCOMPAT = "androidx.appcompat:appcompat:1.3.0"
+    const val ANDROID_FRAGMENT_KTX = "androidx.fragment:fragment-ktx:1.3.6"
+    const val ANDROID_APPCOMPAT = "androidx.appcompat:appcompat:1.3.1"
     const val ANDROID_MATERIAL = "com.google.android.material:material:1.4.0"
-    const val ANDROID_CONSTRAINT = "androidx.constraintlayout:constraintlayout:2.0.4"
+    const val ANDROID_CONSTRAINT = "androidx.constraintlayout:constraintlayout:2.1.0"
     const val ANDROID_SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
 
     const val LIFECYCLE = "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha02"
@@ -45,7 +45,7 @@ object Dependency {
     const val LIFECYCLE_VIEWMODEL = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0-alpha02"
     const val LIFECYCLE_SAVED_STATE = "androidx.lifecycle:lifecycle-viewmodel-savedstate:2.4.0-alpha02"
 
-    const val PAGING = "androidx.paging:paging-runtime:3.0.0"
+    const val PAGING = "androidx.paging:paging-runtime:3.0.1"
 
     const val GLIDE = "com.github.bumptech.glide:glide:4.12.0"
     const val GLIDE_APT = "com.github.bumptech.glide:compiler:4.12.0"

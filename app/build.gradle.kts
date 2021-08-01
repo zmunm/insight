@@ -13,13 +13,13 @@ plugins {
 val rawgKey: String = gradleLocalProperties(rootDir).getProperty(RAWG_KEY)
 
 android {
-    compileSdkVersion(Version.ANDROID_COMPILE)
+    compileSdk = Version.ANDROID_COMPILE
     buildToolsVersion = "30.0.3"
 
     defaultConfig {
         applicationId = "io.github.zmunm.insight"
-        minSdkVersion(Version.ANDROID_MIN)
-        targetSdkVersion(Version.ANDROID_TARGET)
+        minSdk = Version.ANDROID_MIN
+        targetSdk = Version.ANDROID_TARGET
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
         versionCode = 1
@@ -32,23 +32,25 @@ android {
         dataBinding = true
     }
 
-    flavorDimensions(
-        Dimension.Service.NAME,
-        Dimension.Cache.NAME
+    flavorDimensions.addAll(
+        listOf(
+            Dimension.Service.NAME,
+            Dimension.Cache.NAME
+        )
     )
 
     productFlavors {
-        Dimension.Service.Retrofit { create(flavor) { dimension(type) } }
-        Dimension.Service.Volley { create(flavor) { dimension(type) } }
-        Dimension.Service.Ktor { create(flavor) { dimension(type) } }
-        Dimension.Cache.Room { create(flavor) { dimension(type) } }
-        Dimension.Cache.Realm { create(flavor) { dimension(type) } }
-        Dimension.Cache.SqlDelight { create(flavor) { dimension(type) } }
+        Dimension.Service.Retrofit { create(flavor) { dimension = type } }
+        Dimension.Service.Volley { create(flavor) { dimension = type } }
+        Dimension.Service.Ktor { create(flavor) { dimension = type } }
+        Dimension.Cache.Room { create(flavor) { dimension = type } }
+        Dimension.Cache.Realm { create(flavor) { dimension = type } }
+        Dimension.Cache.SqlDelight { create(flavor) { dimension = type } }
     }
 
     buildTypes {
         getByName("release") {
-            minifyEnabled(false)
+            isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile(
                     "proguard-android-optimize.txt"
@@ -65,7 +67,7 @@ android {
     }
 
     packagingOptions {
-        exclude("DebugProbesKt.bin")
+        resources.excludes.add("DebugProbesKt.bin")
     }
 }
 
