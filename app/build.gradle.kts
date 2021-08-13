@@ -2,11 +2,11 @@ import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 import org.jetbrains.dokka.gradle.DokkaTask
 
 plugins {
-    android
+    com.android.application
     `kotlin-android`
     `kotlin-kapt`
     `testing-android`
-    id("dagger.hilt.android.plugin")
+    dagger.hilt.android.plugin
     detekt
 }
 
