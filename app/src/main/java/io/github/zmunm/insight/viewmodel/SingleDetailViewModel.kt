@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import io.github.zmunm.insight.Params
 import io.github.zmunm.insight.entity.Game
 import io.github.zmunm.insight.usecase.GetGameDetail
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -18,7 +19,7 @@ class SingleDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val gameViewModel: GameViewModel,
 ) : ViewModel() {
-    val gameDetail: LiveData<Game> = gameViewModel.game
+    val gameDetail: StateFlow<Game?> = gameViewModel.game
     val like: LiveData<Boolean> get() = gameViewModel.like
 
     private val detailFlow = getGameDetail(

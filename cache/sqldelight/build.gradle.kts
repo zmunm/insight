@@ -1,11 +1,14 @@
 plugins {
-    baseAndroidLibrary
+    com.android.library
+    `kotlin-android`
     `kotlin-kapt`
     id("com.squareup.sqldelight")
     `testing-android`
     detekt
     document
 }
+
+android.defaultSetting()
 
 sqldelight {
     database("DelightDatabase") {

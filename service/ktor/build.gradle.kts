@@ -1,11 +1,14 @@
 plugins {
-    baseAndroidLibrary
+    com.android.library
+    `kotlin-android`
     `kotlinx-serialization`
     `kotlin-kapt`
     `testing-android`
     detekt
     document
 }
+
+android.defaultSetting()
 
 dependencies {
     implementation(project(":domain"))

@@ -1,9 +1,12 @@
 plugins {
-    baseAndroidLibrary
+    com.android.library
+    `kotlin-android`
     jacoco
     detekt
     document
 }
+
+android.defaultSetting()
 
 dependencies {
     implementation(project(":repository"))

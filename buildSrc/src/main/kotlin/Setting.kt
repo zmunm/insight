@@ -1,11 +1,8 @@
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+import com.android.build.api.dsl.LibraryExtension
+import org.gradle.kotlin.dsl.configure
+import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 
-plugins {
-    com.android.library
-    `kotlin-android`
-}
-
-android {
+fun LibraryExtension.defaultSetting() {
     compileSdk = Version.ANDROID_COMPILE
 
     defaultConfig {
@@ -30,7 +27,7 @@ android {
                     showCauses = true
                     showExceptions = true
                     showStackTraces = true
-                    exceptionFormat = TestExceptionFormat.FULL
+                    exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
                 }
             }
         }
