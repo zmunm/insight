@@ -24,5 +24,5 @@ dependencies {
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
     implementation("com.squareup.sqldelight:gradle-plugin:1.5.3")
-    implementation("io.realm:realm-gradle-plugin:10.9.0")
+    implementation("io.realm:realm-gradle-plugin:10.12.0-transformer-api")
 }
