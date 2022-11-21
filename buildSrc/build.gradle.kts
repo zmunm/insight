@@ -19,7 +19,7 @@ dependencies {
     implementation("com.android.tools.build:gradle:${PluginVersion.ANDROID_TOOL}")
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:${PluginVersion.KOTLIN}")
     implementation("org.jetbrains.kotlin:kotlin-serialization:${PluginVersion.KOTLIN}")
-    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.19.0")
+    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.22.0")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
