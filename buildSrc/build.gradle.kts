@@ -22,7 +22,7 @@ dependencies {
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.19.0")
     implementation("org.jetbrains.dokka:dokka-gradle-plugin:${PluginVersion.DOKKA}")
     implementation("com.github.ben-manes:gradle-versions-plugin:${PluginVersion.VERSIONING}")
-    implementation("com.google.dagger:hilt-android-gradle-plugin:2.38.1")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:2.45")
     implementation("com.squareup.sqldelight:gradle-plugin:1.5.3")
     implementation("io.realm:realm-gradle-plugin:10.9.0")
 }
